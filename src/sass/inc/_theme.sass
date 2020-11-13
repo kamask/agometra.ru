@@ -1,0 +1,74 @@
+@import 'vars'
+a
+  text-decoration: none
+  color: $color-black-text
+  transition: all 0.1s ease-in-out
+
+  &:hover
+    text-decoration: underline
+    display: block
+    transform: scale(1.05)
+
+input
+  border: none
+  outline: none
+
+mark
+  color: $color-green
+  background: transparent
+  font-weight: bold
+
+
+.text-green
+  color: $color-green
+
+
+.button-green
+  border: none
+  outline: none
+  background: #84EFA2
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+  border-radius: 10px
+  padding: 12px 20px 
+  font-size: 14px
+  color: $color-black-text
+
+  &:hover
+    cursor: pointer
+    background: #6cec91
+  
+
+  &:active
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1)
+
+.button-white
+  border: none
+  outline: none
+  background: #fff
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+  border-radius: 10px
+  padding: 12px 20px
+  font-size: 14px
+  color: $color-black-text
+
+  &:hover
+    cursor: pointer
+    background: darken(#fff, 2)
+
+  &:active
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1)
+
+.main-container
+  max-width: 1200px
+  margin: 0 auto
+  padding-top: 10px
+  position: relative
+
+  +media-max(1200)
+    max-width: 100%
+    padding: 10px
+
+.block
+  background: rgba(255, 255, 255, 0.6)
+  box-shadow: inset 0 0 15px rgba(234, 202, 175, 0.5)
+  border-radius: 25px

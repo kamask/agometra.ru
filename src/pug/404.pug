@@ -1,0 +1,8 @@
+extends layouts/main.pug
+block head_scripts
+    +css('/css/404.css')
+block body
+    include inc/svg/logo.svg
+    h1 404 - Страница не найдена!
+    a(href='/') Перейти на главную
+block footer_scripts 
