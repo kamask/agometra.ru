@@ -1,0 +1,1 @@
+var scrollHandler,slow;import{animation,findParent,el,log}from"/js/ksk-lib.js";slow=!1,scrollHandler=function(e){var l,n;return e.preventDefault(),1===e.deltaY&&(slow=!0),l=function(e){return window.scrollTo(0,e)},animation(window.pageYOffset,slow?40*e.deltaY:e.deltaY,300,l,"quad-out",n)},document.documentElement.addEventListener("wheel",scrollHandler,{passive:!1});

@@ -10,7 +10,6 @@ document.addEventListener 'DOMContentLoaded', ->
     ), 1000
   return
 windowLoadHandler = ->
-  console.log 'Document loaded'
   preloaderContainer.style.opacity = '0'
   setTimeout (->
     # document.body.classList.remove('preload')

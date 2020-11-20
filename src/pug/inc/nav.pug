@@ -1,8 +1,15 @@
+- 
+  var links = [
+      {label: "наличие на складе", url: "#"},
+      {label: "прайс-лист", url: "#"},
+      {label: "размеры", url: "#"},
+      {label: "доставка", url: "#"},
+      {label: "сертификаты", url: "#"},
+      {label: "наша фабрика", url: "#"}
+    ]
+
 nav
   ul
-    - var n = [1,2,3,4,5]
-    each val in n
-      li #{val}
-        - var w = 0
-        while w < 12
-          a= w++
+    each link in links
+      li
+        a.text-green(href=link.url)= link.label

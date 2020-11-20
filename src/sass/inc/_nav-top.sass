@@ -1,0 +1,129 @@
+#burger-menu-button
+  display: none
+  position: fixed
+  top: 20px
+  left: 20px
+  background-color: rgba(251, 245, 241, .8)
+  cursor: pointer
+  padding: 0 20px
+  overflow: hidden
+  border: 1px solid $color-green
+  border-radius: 10px
+  font-size: 40px
+  color: $color-green
+  z-index: 5
+  +media-max(850)
+    display: block
+
+#nav-top
+  display: flex
+  flex-flow: wrap
+  position: fixed
+  top: -80px
+  left: calc(50% - 600px)
+  width: 100%
+  max-width: 1170px
+  background-color: rgba(251, 245, 241, .95)
+  border-radius: 0 0 25px 25px
+  box-shadow: 0 0 5px rgba(0, 0, 0, .25)
+  padding: 5px 15px 10px
+  z-index: 20
+  transition: all .3s ease-in-out
+  +media-max(1200)
+    width: calc(100% - 50px)
+    left: 10px
+  +media-max(850)
+    flex-flow: column nowrap
+    width: 320px
+    height: calc(100vh - 20px)
+    top: 0
+    left: -380px
+    border-radius: 0 25px 25px 0
+    padding: 10px 25px
+
+  #nav-top-close-button
+    display: none
+    position: absolute
+    top: 15px
+    left: 25px
+    font-size: 40px
+    color: $color-green
+    cursor: pointer
+    +media-max(850)
+      display: inline
+
+  .lk-client
+    div:first-child
+      svg
+        width: 20px
+        position: relative
+        top: 5px
+      span
+        margin-left: 5px
+        font-size: 14px
+    +media-max(1120)
+      div:first-child
+        span
+          font-size: 13px
+    +media-max(850)
+      text-align: right
+      order: 1
+      div:first-child
+        span
+          font-size: 14px
+      
+  #logoSVGNav
+    width: 70px
+    +media-max(850)
+      order: 2
+      width: 130px
+      margin: -25px 0 0 80px
+  
+  ul
+    list-style: none
+    display: flex
+    justify-content: center
+    width: 100%
+    li
+      margin: 0 30px
+      text-transform: uppercase
+
+    +media-max(1120)
+      font-size: 15px
+      li
+        margin: 0 20px
+    +media-max(960)
+      li
+        margin: 0 15px
+    +media-max(900)
+      font-size: 14px
+    +media-max(850)
+      order: 3
+      flex-flow: column nowrap
+      flex: 1 1 auto
+      justify-content: start
+      align-items: center
+      margin-top: 40px
+      font-size: 16px
+      li
+        margin-top: 20px
+
+  address
+    display: flex
+    justify-content: space-around
+    flex: 1 1 auto
+    font-style: normal
+    font-size: 14px
+    margin-top: 10px
+    +media-max(1120)
+      font-size: 13px
+    +media-max(850)
+      order: 4
+      flex-flow: column
+      justify-content: start
+      align-items: center
+      padding-bottom: 20px
+      flex: 0 1 auto
+      >p
+        margin-bottom: 10px
+        font-size: 15px

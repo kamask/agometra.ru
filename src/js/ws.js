@@ -1,0 +1,1 @@
+var ws;import{log}from"/js/ksk-lib.js";(ws=new WebSocket("wss://test.agometra.ru/ws")).onopen=function(o){log("WebSocket connedted"),ws.send("hello Moto")},ws.onmessage=function(o){return log("Socket take: "+o.data)},ws.onclose=function(o){log("Socket closed")},ws.onerror=function(o){return log("Socket err: "+o.message)};

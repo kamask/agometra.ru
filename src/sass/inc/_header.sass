@@ -1,5 +1,16 @@
 header
   display: block
+  padding: 20px 50px
+  position: relative
+
+  +media-max(1010)
+    padding: 20px
+
+  +media-max(770)
+    padding: 5px 20px 20px
+  
+  +media-max(350)
+    padding: 5px 5px 20px
 
   address
     display: flex
@@ -9,8 +20,192 @@ header
     font-style: normal
 
     >p
-      margin: 20px 30px 0
+      margin: 0 30px
+      text-align: center
+
+    +media-max(1200)
+      >p
+        margin: 0 20px
+
+    +media-max(1010)
+      display: block
+      font-size: 12px
+      >p
+        display: inline-block
+        margin: 0 15px
+
+    +media-max(850)
+      >p
+        display: block
+        text-align: right
+        margin: 7px 0
+
 
   #logoSVG
+    width: 400px
+    position: absolute
+    z-index: 10
+    +media-max(1010)
+      position: static
+      margin-top: 20px
+      width: 300px
+    +media-max(850)
+      margin-top: -60px
+      margin-left: calc(50% - 150px)
+
+  .lk-client
+    position: absolute
+    top: 18px
+    right: 40px
+
+    >div:first-child
+      display: flex
+
+      svg
+        width: 20px
+      
+      span
+        font-size: 14px
+        margin-left: 5px
+    
+    +media-max(1200)
+      right: 25px
+
+    +media-max(1010)
+    >div:first-child
+      span
+        font-size: 12px
+
+    +media-max(850)
+      display: none
+
+  #callback-form
+    width: 410px
+    margin: 125px 0 0 650px
+    display: flex
+    flex-wrap: wrap
+
+    label
+      width: 100%
+      font-size: 18px
+      margin-bottom: 20px
+    
+    input
+      padding-left: 10px
+      width: 250px
+      border-radius: 10px
+      margin-right: 20px
+      box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+
+    +media-max(1200)
+      margin-left: 50%
+
+    +media-max(1010)
+      margin: 100px 0 0
+      float: right
+      width: 360px
+      label
+        font-size: 16px
+      input
+        width: 200px
+        margin-right: 10px
+        font-size: 14px
+
+    +media-max(850)
+      margin: 55px 0 0
+      width: 310px
+      input
+        width: 180px
+    
+    +media-max(640)
+      position: absolute
+      top: 640px
+      margin: 0
+      left: calc(50% - 155px)
+  
+  h1
+    text-transform: uppercase
+    margin-top: 110px
+    font-size: 48px
+    font-weight: bolder
     width: 500px
-    z-index: 10 
+
+    span
+      position: relative
+      top: -25px
+      font-size: 20px
+      text-transform: uppercase
+      font-weight: normal
+
+    +media-max(1010)
+      margin-top: 50px
+      font-size: 42px
+      span
+        font-size: 16px
+
+    +media-max(850)
+      width: 310px
+
+    +media-max(640)
+      text-align: center
+      margin: 20px auto 0
+    +media-max(380)
+      width: 250px
+
+  >p
+    font-size: 18px
+    +media-max(1200)
+      font-size: 15px
+  
+  >img
+    position: absolute
+    top: 300px
+    right: 0
+
+    +media-max(1200)
+      width: 500px
+    
+    +media-max(1010)
+      width: 50%
+      top: calc(560px - 31vw)
+    +media-max(850)
+      top: 390px
+      width: 300px
+      left: 53%
+    +media-max(640)
+      display: none
+
+  nav
+    margin-top: 40px
+
+    ul
+      list-style: none
+      display: flex
+      justify-content: center
+
+    li
+      margin: 0 20px
+
+    a
+      text-transform: uppercase
+      font-size: 18px
+
+    +media-max(1200)
+      margin-top: 30px
+
+      li
+        margin: 0 10px
+
+      a
+        font-size: 16px
+    
+    +media-max(1010)
+      ul
+        flex-flow: wrap
+      li
+        flex: 0 1 30%
+        margin: 10px
+        text-align: center
+
+    +media-max(850)
+      display: none
