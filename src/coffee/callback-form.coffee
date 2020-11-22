@@ -1,4 +1,5 @@
 import { ev, el, log } from '/js/ksk-lib.js'
+import { ws } from '/js/ws.js'
 
 $form = el '#callback-form'
 $input = el '#callback-form-input'
@@ -6,18 +7,13 @@ userInput = ''
 
 ev $form, 'submit', (e) ->
   do e.preventDefault
-  log 'Send: ' + $input.value
+  ws.send(JSON.stringify({ type: 'callback', data: userInput[...11] }))
   $input.value = ''
   userInput = ''
   return
 
 ev $input, 'input', (e) ->
   do e.preventDefault
-
-  if e.data == 'Enter'
-    log 'Send: ' + $input.value
-    $input.value = ''
-    userInput = ''
 
   if e.data == null
     userInput = userInput.substr 0, userInput.length - 1

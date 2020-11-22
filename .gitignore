@@ -4,3 +4,4 @@
 /src/node_modules/
 /src/yarn.lock
 /src/yarn-error.log
+/app/config.py

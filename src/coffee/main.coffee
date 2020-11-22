@@ -15,8 +15,8 @@ $burgerButton = document.createElement('span')
 $burgerButton.id = 'burger-menu-button'
 $burgerButton.innerText = '≑'
 
-$logo = el('#logoSVG').cloneNode(true)
-$logo.id = 'logoSVGNav'
+$logo = el('#logo-svg').cloneNode(true)
+$logo.id = 'logo-nav-svg'
 
 $nav.append($closeButton)
 $nav.append($logo)

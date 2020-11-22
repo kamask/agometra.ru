@@ -1,7 +1,8 @@
 header.block
   .lk-client.close
     div
-      include svg/user.svg
+      #user-icon-svg
+        include svg/user.svg
       span Кабинет клиента
   
   address
@@ -9,7 +10,8 @@ header.block
     p Ежедневно с #[time(datetime="08:00+03:00") 8.00] до #[time(datetime="18:00+03:00") 18.00]
     p: a(href="tel://+79998713317") +7 (999) 871-33-17
 
-  include svg/logo.svg
+  #logo-svg
+    include svg/logo.svg
 
   form#callback-form
     label.text-green(for="callback-form-input") Перезвоним и расскажем всё в деталях
@@ -26,6 +28,8 @@ header.block
   br/
   p Фабрика в Узбекистане, #[strong склад в Москве.<br>Постоянный] #[strong неснижаемый остаток] на<br>складе не менее 70 000 шт.
   
-  img#header-image(src="/images/ai_fabrik.webp")
+  picture#header-image
+    source(srcset="/images/fabrik-illustration.webp" type="image/webp")
+    img(src="/images/fabrik-illustration.png" alt="Fabrik Illustration")
 
   include nav.pug

@@ -1,6 +1,6 @@
 import { el, ev, els } from '/js/ksk-lib.js'
 
-$logo = el '#logoSVG'
+$logo = el '#logo-svg'
 $img = el '#header-image'
 offset = 50
 frX = document.documentElement.clientWidth / offset

@@ -1,8 +1,8 @@
 preloaderContainer = document.getElementById('preloaderContainer')
 document.addEventListener 'DOMContentLoaded', ->
-  logoSVG = document.getElementById('logoSVG')
+  logoSVG = document.getElementById('logo-svg')
   logoSVGPreloader = logoSVG.cloneNode(true)
-  logoSVGPreloader.id = 'logoSVGPreloader'
+  logoSVGPreloader.id = 'logo-svg-preloader'
   logoSVGPreloader.style.width = '300px'
   setTimeout (->
     preloaderContainer.append(logoSVGPreloader)
