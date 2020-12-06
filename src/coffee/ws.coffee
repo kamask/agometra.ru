@@ -1,7 +1,8 @@
 import { log } from '/js/ksk-lib.js'
 
-export ws = new WebSocket 'wss://test.agometra.ru/ws'
 export ws_handlers = new Map
+
+export ws = new WebSocket 'wss://test.agometra.ru/ws'
 
 wsInit = ->
   if ws.readyState is 3

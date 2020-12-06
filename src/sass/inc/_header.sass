@@ -1,6 +1,6 @@
 header
   display: block
-  padding: 20px 50px
+  padding: 20px 50px 10px
   position: relative
 
   +media-max(1010)
@@ -47,6 +47,7 @@ header
     z-index: 10
     +media-max(1010)
       position: static
+      display: inline-block
       margin-top: 20px
       width: 300px
     +media-max(850)
@@ -60,6 +61,9 @@ header
 
     >div:first-child
       display: flex
+      cursor: pointer
+      position: relative
+      z-index: 11
 
       #user-icon-svg
         display: inline-block
@@ -69,13 +73,43 @@ header
         font-size: 14px
         margin-left: 5px
     
+    >form
+      border-radius: 10px
+      background: rgba(255, 255, 255, .9)
+      padding: 15px 20px
+      display: none
+      flex-flow: column nowrap
+      position: absolute
+      right: 0
+      top: calc(100% + 5px)
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+      opacity: 0
+      transform: translateY(-20px)
+      z-index: 10
+      transition: all .2s ease-out
+
+      &.show
+        opacity: 1
+        transform: translateY(0)
+
+
+      input
+        padding: 10px 0 10px 10px
+        width: 140px
+        border-radius: 10px
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2)
+        margin-bottom: 15px
+      
+      button
+        padding: 8px 25px
+    
     +media-max(1200)
       right: 25px
 
     +media-max(1010)
-    >div:first-child
-      span
-        font-size: 12px
+      >div:first-child
+        span
+          font-size: 12px
 
     +media-max(850)
       display: none
@@ -85,6 +119,7 @@ header
     margin: 125px 0 0 650px
     display: flex
     flex-wrap: wrap
+    position: relative
 
     label
       width: 100%
@@ -97,6 +132,43 @@ header
       border-radius: 10px
       margin-right: 20px
       box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+    
+    .callback-helper
+      position: absolute
+      bottom: 0
+      right: 150px
+      transition: all .3s ease-out
+      background: rgba(132, 239, 162, .95)
+      font-size: 14px
+      border-radius: 10px
+      padding: 12px 0
+      text-align: center
+      width: 0
+      height: 17px
+      overflow: hidden
+      z-index: 90
+      white-space: nowrap
+
+      &.error
+        background-color: $color-error
+
+      &.show
+        width: 250px
+        padding: 12px 5px
+        +media-max(1200)
+          padding: 12px 5px
+          height: 19px
+        +media-max(1010)
+          padding: 8px 5px
+          width: 200px
+        +media-max(640)
+          width: 180px
+          font-size: 12px
+          padding: 10px 5px
+          height: 14px
+
+      +media-max(850)
+        right: 120px
 
     +media-max(1200)
       margin-left: 50%
@@ -178,6 +250,8 @@ header
 
   nav
     margin-top: 40px
+    border-top: 2px solid $color-green-light
+    padding: 20px
 
     ul
       list-style: none

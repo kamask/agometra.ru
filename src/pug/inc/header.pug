@@ -1,9 +1,12 @@
 header.block
-  .lk-client.close
+  .lk-client
     div
       #user-icon-svg
         include svg/user.svg
       span Кабинет клиента
+    form
+      input(name="login" placeholder="+7 (999) 999-99-99" autocomplete="off" type="text")
+      button.button-green(type="submit") Далее
   
   address
     p: a(href="https://yandex.ru/maps/org/agometra/244048201602" target="_blank") г. Москва, Чагинская 13 стр. 5

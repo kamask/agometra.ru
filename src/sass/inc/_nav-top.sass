@@ -19,7 +19,7 @@
   display: flex
   flex-flow: wrap
   position: fixed
-  top: -80px
+  top: -90px
   left: calc(50% - 600px)
   width: 100%
   max-width: 1170px
@@ -59,6 +59,8 @@
 
   .lk-client
     div:first-child
+      cursor: pointer
+      
       #user-icon-svg
         display: inline-block
         width: 20px
@@ -80,6 +82,32 @@
     +media-max(380)
       width: 300px
       
+    >form
+      border-radius: 10px
+      background: rgba(255, 255, 255, .9)
+      padding: 15px 20px
+      display: none
+      flex-flow: column nowrap
+      position: absolute
+      right: 20px
+      top: 45px
+      box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+      opacity: 0
+      transform: translateY(-20px)
+      z-index: 9
+      transition: all .2s ease-out
+
+      &.show
+        opacity: 1
+        transform: translateY(0)
+
+      input
+        padding: 10px 0 10px 10px
+        width: 140px
+        border-radius: 10px
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2)
+        margin-bottom: 15px
+
   #logo-nav-svg
     width: 70px
     +media-max(850)

@@ -1,0 +1,1 @@
+import{handleLkForm}from"/js/lk-form.js";export default function(){return handleLkForm("#nav-top .lk-client>form","#nav-top .lk-client>div:first-child")}
