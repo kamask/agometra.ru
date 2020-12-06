@@ -5,3 +5,6 @@
 /src/yarn.lock
 /src/yarn-error.log
 /app/config.py
+**/*.pyc
+/__pycache__
+**/__pycache__
