@@ -1,6 +1,9 @@
 import { log } from '/js/ksk-lib.js'
+import { updateFromWs } from '/js/store.js'
 
 export ws_handlers = new Map
+
+updateFromWs ws_handlers
 
 export ws = new WebSocket 'wss://test.agometra.ru/ws'
 

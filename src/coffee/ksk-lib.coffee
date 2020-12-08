@@ -79,3 +79,16 @@ export animation = (current, moveVal, duration, setNewVal, timing = 'linear',
       return
   
     return requestAnimFrame animate
+
+export makeObserveble = (obj) ->
+  observers = []
+  obj.addObserver = (cb) ->
+    observers.push cb
+    return
+  new Proxy obj, {
+    set: (target, property, value, receiver) ->
+      for h in observers
+        h target, property, value, receiver
+      Reflect.set target, property, value, receiver
+      return true
+  }

@@ -21,6 +21,24 @@ async def ws_incoming(websocket):
   ws_id = ws_id_counter
   ws_list[ws_id] = websocket
 
+  await websocket.send_json({'type': 'id', 'data': ws_id})
+  await send_init_data(websocket)
+  
+  try:
+    while(True):
+      data = await websocket.receive_json()
+      if data['type'] in ws_handlers:
+        await ws_handlers[data['type']](ws_id, data['data'])
+  except WebSocketDisconnect:
+    if ws_id in ws_list:
+      del ws_list[ws_id]
+
+  await websocket.close()
+  if ws_id in ws_list:
+    del ws_list[ws_id]
+
+
+async def send_init_data(websocket):
   shirts_raw = await db.fetch_all('select * from shirts')
   shirts = [dict(s) for s in shirts_raw]
 
@@ -37,25 +55,14 @@ async def ws_incoming(websocket):
   photos_shirts = [dict(s) for s in photos_shirts_raw]
 
   data = {
-    'shirts': shirts,
-    'density': density,
-    'colors': colors,
-    'sizes': sizes,
-    'photos_shirts': photos_shirts
+    'where': 'all',
+    'data': {
+      'shirts': shirts,
+      'density': density,
+      'colors': colors,
+      'sizes': sizes,
+      'photos_shirts': photos_shirts
+    }
   }
 
-  await websocket.send_json({'type': 'id', 'data': ws_id})
-  await websocket.send_json({'type': 'data-init', 'data': json.dumps(data)})
-  
-  try:
-    while(True):
-      data = await websocket.receive_json()
-      if data['type'] in ws_handlers:
-        await ws_handlers[data['type']](ws_id, data['data'])
-  except WebSocketDisconnect:
-    if ws_id in ws_list:
-      del ws_list[ws_id]
-
-  await websocket.close()
-  if ws_id in ws_list:
-    del ws_list[ws_id]
+  await websocket.send_json({'type': 'data-shirts-update', 'data': json.dumps(data)})

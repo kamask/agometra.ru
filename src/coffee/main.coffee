@@ -5,6 +5,7 @@ import "/js/header.js"
 import "/js/callback-form.js"
 import "/js/ws.js"
 import "/js/lk-form.js"
+import "/js/shirts-options.js"
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'
@@ -62,10 +63,4 @@ ev document, 'scroll', (e) ->
 do ->
   lkForm = await import('/js/lk-form.js')
   do lkForm.navTopInit
-  return
-  
-
-ws_handlers.set 'data-init', (data) ->
-  window.agodata = JSON.parse data
-  log JSON.parse data
   return
