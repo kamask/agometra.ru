@@ -87,8 +87,8 @@ export makeObserveble = (obj) ->
     return
   new Proxy obj, {
     set: (target, property, value, receiver) ->
+      Reflect.set target, property, value, receiver
       for h in observers
         h target, property, value, receiver
-      Reflect.set target, property, value, receiver
       return true
   }
