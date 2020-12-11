@@ -1,4 +1,4 @@
-import { log, el, ev, makeObserveble, els } from '/js/ksk-lib.js'
+import { log, el, ev, makeObserveble, nodeObserver, els } from '/js/ksk-lib.js'
 import { store } from '/js/store.js'
 
 export current = makeObserveble {
@@ -14,7 +14,7 @@ store.addObserver (target, property, value) ->
     do renderDensityOptions
   return
 
-$options = el '#shirts .options'
+export $options = el '#shirts .options'
 $densityPrice = el '.density-price', $options
 
 renderDensityOptions = ->
@@ -24,31 +24,27 @@ renderDensityOptions = ->
   for d in density
     $densityItem = document.createElement 'li'
     $densityItem.densityId = d.id
-    $densityItem.innerText = d.code
+    $densityItem.innerText = d.code + ' г/м²'
     $densityList.append $densityItem
 
   
   $densityPrice.before $densityList
 
-  densityObserver = new MutationObserver (mutationRecords) ->
-    for mr, i in mutationRecords
-      if mr.type == 'attributes' and mr.target.tagName == 'LI'
-        if mr.target.classList.contains('active')
-          current.density = mr.target.densityId
-          d = store.dataFromServer.density.find (i) -> i.id == current.density
-          prices = [d.price, d.price_100, d.price_1000, d.price_1000 - 5]
-          for $li, i in els 'li', $densityPrice
-            el 'span:last-child', $li
-            .innerText = if i == 3 then "#{prices[i]}₽ и ниже" else "#{prices[i]}₽"
-          do renderColorOptions
-    return
-
-  densityObserver.observe $densityList, {
+  nodeObserver $densityList, {
     subtree: true
     attributes: true
-    attributeOldValue: true
     attributeFilter: ['class']
-  }
+  }, (mr) ->
+    if mr.type == 'attributes' and mr.target.tagName == 'LI'
+      if mr.target.classList.contains('active')
+        current.density = mr.target.densityId
+        d = store.dataFromServer.density.find (i) -> i.id == current.density
+        prices = [d.price, d.price_100, d.price_1000, d.price_1000 - 5]
+        for $li, i in els 'li', $densityPrice
+          el 'span:last-child', $li
+          .innerText = if i == 3 then "#{prices[i]}₽ и ниже" else "#{prices[i]}₽"
+        do renderColorOptions
+    return
 
   for $li, i in els 'li', $densityList
     if i == 0 then $li.classList.add 'active'
@@ -71,8 +67,7 @@ renderColorOptions = ->
 
   shirts = store.dataFromServer.shirts.filter (i) -> i.density_id is current.density
   colorsIds = new Set (i.color_id for i in shirts)
-  colors = [(store.dataFromServer.colors.find (c) -> c.id is i) for i in Array.from colorsIds]
-  colors = colors[0]
+  colors = ((store.dataFromServer.colors.find (c) -> c.id is i) for i in Array.from colorsIds)
 
   $colorsList = document.createElement 'ul'
   for c in colors
@@ -83,20 +78,16 @@ renderColorOptions = ->
 
   $colorsOptions.append $colorsList
 
-  colorsObserver = new MutationObserver (mutationRecords) ->
-    for mr in mutationRecords
-      if mr.type == 'attributes' and mr.target.tagName == 'LI'
-        if mr.target.classList.contains('active')
-          current.color = mr.target.colorId
-          do renderCount
-    return
-
-  colorsObserver.observe $colorsList, {
+  nodeObserver $colorsList, {
     subtree: true
     attributes: true
     attributeOldValue: true
-    attributeFilter: ['class']
-  }
+  }, (mr) ->
+    if mr.type == 'attributes' and mr.target.tagName == 'LI'
+      if mr.target.classList.contains('active')
+        current.color = mr.target.colorId
+        do renderCount
+    return
 
   for $li, i in els 'li', $colorsList
     if i == 0 then $li.classList.add 'active'
@@ -108,8 +99,44 @@ renderColorOptions = ->
         @classList.add 'active'
       return
 
+
+$existenceOptions = el '.existence', $options
+$expectedOptions = el '.expected', $options
+
 renderCount = ->
   shirts = store.dataFromServer.shirts.filter (i) -> i.density_id is current.density and i.color_id is current.color
-  expected = store.dataFromServer.expected
-  log new Date expected[0].date
+  shirtsIds = (i.id for i in shirts)
+  expected = store.dataFromServer.expected.filter (i) -> i.shirt_id in shirtsIds
+  sizes = store.dataFromServer.sizes
+
+  if expected.length is 0 then $expectedOptions.classList.add 'empty'
+  else $expectedOptions.classList.remove 'empty'
+
+  t = el 'ul', $existenceOptions
+  if t then do t.remove
+  
+  $existenceList = document.createElement 'ul'
+  for s in shirts
+    size = (sizes.find (i) -> i.id is s.size_id).euro
+    $li = document.createElement 'li'
+    $li.innerHTML = "#{size}: <span>#{s.count} шт.</span>"
+    $existenceList.append $li
+  $existenceOptions.append $existenceList
+
+  t = el 'ul', $expectedOptions
+  if t then do t.remove
+  
+  if expected.length > 0
+    $expectedList = document.createElement 'ul'
+    for e in expected
+      size = (sizes.find (i) -> i.id is (shirts.find (i) -> i.id is e.shirt_id).size_id).euro
+      date = (new Date e.date).toLocaleDateString 'ru', {
+        day: 'numeric'
+        month: 'long'
+        year: 'numeric'
+      }
+      $li = document.createElement 'li'
+      $li.innerHTML = "#{size}: <span>#{e.count} шт.</span> #{date}"
+      $expectedList.append $li
+    $expectedOptions.append $expectedList
   return

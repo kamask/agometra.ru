@@ -92,3 +92,12 @@ export makeObserveble = (obj) ->
         h target, property, value, receiver
       return true
   }
+
+export nodeObserver = (node, opt, cb) ->
+  observer = new MutationObserver (mutationRecords) ->
+    for mr in mutationRecords
+      cb mr
+    return
+
+  observer.observe node, opt
+  return
