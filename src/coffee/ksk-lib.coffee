@@ -101,3 +101,15 @@ export nodeObserver = (node, opt, cb) ->
 
   observer.observe node, opt
   return
+
+export imgWithWebp = (url, webp = null) ->
+  $picture = document.createElement 'picture'
+  if webp
+    $webp = document.createElement 'source'
+    $webp.setAttribute 'srcset', webp
+    $webp.setAttribute 'type', 'image/webp'
+    $picture.append $webp
+  $img = document.createElement 'img'
+  $img.setAttribute 'src', url
+  $picture.append $img
+  return $picture
