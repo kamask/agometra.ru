@@ -6,6 +6,7 @@ import "/js/callback-form.js"
 import "/js/ws.js"
 import "/js/lk-form.js"
 import "/js/shirts-options.js"
+import "/js/shirts-slider.js"
 import "/js/shirts-calc.js"
 
 $nav = document.createElement 'nav'
@@ -55,7 +56,7 @@ ev $nav, 'click', (e) ->
 ev document, 'scroll', (e) ->
   scroll = window.pageYOffset
   if docWidth > 850
-    if scroll > 710
+    if scroll > 750
       $nav.style.top = '0'
     else
       $nav.style.top = '-90px'

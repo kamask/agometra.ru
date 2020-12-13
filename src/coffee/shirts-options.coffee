@@ -17,6 +17,12 @@ store.addObserver (target, property, value) ->
 export $options = el '#shirts .options'
 $densityPrice = el '.density-price', $options
 
+docWidth = document.documentElement.clientWidth
+
+if docWidth <= 1200
+  el '#shirts>div:last-child'
+  .prepend $options
+
 renderDensityOptions = ->
   { density } = store.dataFromServer
 
