@@ -44,7 +44,7 @@ renderDensityOptions = ->
     if mr.type == 'attributes' and mr.target.tagName == 'LI'
       if mr.target.classList.contains('active')
         current.density = mr.target.densityId
-        d = store.dataFromServer.density.find (i) -> i.id == current.density
+        d = density.find (i) -> i.id == mr.target.densityId
         prices = [d.price, d.price_100, d.price_1000, d.price_1000 - 5]
         for $li, i in els 'li', $densityPrice
           el 'span:last-child', $li
@@ -136,7 +136,8 @@ renderCount = ->
     $expectedList = document.createElement 'ul'
     for e in expected
       size = (sizes.find (i) -> i.id is (shirts.find (i) -> i.id is e.shirt_id).size_id).euro
-      date = (new Date e.date).toLocaleDateString 'ru', {
+      date = new Date e.date
+      .toLocaleDateString 'ru', {
         day: 'numeric'
         month: 'long'
         year: 'numeric'
