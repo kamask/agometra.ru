@@ -5,12 +5,14 @@ from .ws import ws_list
 
 from . import callback
 from . import login
+from . import one_click
 
 ws_id_counter = 0
 
 ws_handlers = dict({
   'callback': callback.handler,
-  'login': login.handler
+  'login': login.handler,
+  'one_click': one_click.handler
 })
 
 

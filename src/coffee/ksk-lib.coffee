@@ -6,6 +6,7 @@ export els = (selector, parrent = document) ->
 
 export ev = (el, event, handler) ->
   el.addEventListener event, handler
+  return
 
 export log = (t...) ->
   console.log t...
@@ -14,6 +15,9 @@ export log = (t...) ->
 export text = (el, text) ->
   el.innerText = text
   return
+
+export newEl = (el) ->
+  document.createElement el
 
 export findParent = (where, parent) ->
   if typeof parent == 'string'
