@@ -19,7 +19,7 @@ async def handler(id, data):
     text = f'''
   *Обратный звонок:*
 
-  [{tel_number}](https://{data})
+  [{tel_number}](tel:{data})
 
   *{datetime.now().strftime("%d.%m.%Y")}*
   *{datetime.now().strftime("%H:%M:%S")}*
