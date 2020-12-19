@@ -1,5 +1,6 @@
 import { log, el, ev, makeObserveble, nodeObserver, els } from '/js/ksk-lib.js'
 import { store } from '/js/store.js'
+import { ws_handlers } from '/js/ws.js'
 
 export current = makeObserveble {
   density: null
@@ -72,6 +73,7 @@ renderColorOptions = ->
   if t then do t.remove
 
   shirts = store.dataFromServer.shirts.filter (i) -> i.density_id is current.density
+  shirts.sort (a, b) -> a.id - b.id
   colorsIds = new Set (i.color_id for i in shirts)
   colors = ((store.dataFromServer.colors.find (c) -> c.id is i) for i in Array.from colorsIds)
 
@@ -120,6 +122,8 @@ renderCount = ->
 
   t = el 'ul', $existenceOptions
   if t then do t.remove
+
+  shirts.sort (a, b) -> a.id - b.id
   
   $existenceList = document.createElement 'ul'
   for s in shirts
@@ -146,4 +150,11 @@ renderCount = ->
       $li.innerHTML = "#{size}: <span>#{e.count} шт.</span> #{date}"
       $expectedList.append $li
     $expectedOptions.append $expectedList
+  return
+
+ws_handlers.set 'shirts-count-subtract', (data) ->
+  for s in data
+    f = store.dataFromServer.shirts.findIndex (i) -> i.id is s.id
+    store.dataFromServer.shirts[f].count = s.count
+    do renderCount
   return

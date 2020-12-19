@@ -16,9 +16,14 @@ async def add_order_shirts(client_data, shirts, one_click = False):
     client = dict(raw)
     client['number'] = client_data['number']
 
-  print(client)
-
   order_id = await db.execute(
-    f"INSERT INTO orders(client_id, one_click) VALUES(:client_id, :one_click) RETURNING id",
+    'INSERT INTO orders(client_id, one_click) VALUES(:client_id, :one_click) RETURNING id',
     {'client_id': client['id'], 'one_click': one_click})
+  
+  values = []
+  for k, v in shirts.items():
+    values.append({'shirt_id': int(k), 'count': v, 'order_id': order_id})
+  await db.execute_many(
+    'INSERT INTO orders_shirts_list(order_id, shirt_id, count) VALUES(:order_id, :shirt_id, :count)',
+     values)
   return order_id
