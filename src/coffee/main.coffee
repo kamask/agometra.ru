@@ -8,6 +8,7 @@ import "/js/lk-form.js"
 import "/js/shirts-options.js"
 import "/js/shirts-slider.js"
 import "/js/shirts-calc.js"
+import "/js/exact-sizes.js"
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'

@@ -23,6 +23,10 @@ exports.default = ->
         .pipe do cssmin
         .pipe dest '../public/css/'
         .pipe dest 'css/'
+
+        src ['pug/**/*.pug', '!pug/layouts/**/*.pug', '!pug/inc/**/*.pug']
+        .pipe pug { prettiy: false }
+        .pipe dest '../app/tpl'
         do cb
         return
     
@@ -32,6 +36,10 @@ exports.default = ->
         .pipe minify { ext: { min: '.js' }, noSource: true }
         .pipe dest '../public/js'
         .pipe dest 'js/'
+        
+        src ['pug/**/*.pug', '!pug/layouts/**/*.pug', '!pug/inc/**/*.pug']
+        .pipe pug { prettiy: false }
+        .pipe dest '../app/tpl'
         do cb
         return
     return
