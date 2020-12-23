@@ -61,6 +61,9 @@ async def send_init_data(websocket):
   photos_shirts_raw = await db.fetch_all('select * from photos_shirts')
   photos_shirts = [dict(s) for s in photos_shirts_raw]
 
+  gallery_agometra_raw = await db.fetch_all('select * from gallery_agometra')
+  gallery_agometra = [dict(i) for i in gallery_agometra_raw]
+
   data = {
     'where': 'all-init',
     'data': {
@@ -69,7 +72,8 @@ async def send_init_data(websocket):
       'colors': colors,
       'sizes': sizes,
       'photos_shirts': photos_shirts,
-      'expected': expected
+      'expected': expected,
+      'gallery_agometra': gallery_agometra
     }
   }
 

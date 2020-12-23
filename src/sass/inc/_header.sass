@@ -8,7 +8,7 @@ header
 
   +media-max(770)
     padding: 5px 20px 20px
-  
+
   +media-max(350)
     padding: 5px 5px 20px
 
@@ -68,11 +68,11 @@ header
       #user-icon-svg
         display: inline-block
         width: 20px
-      
+
       span
         font-size: 14px
         margin-left: 5px
-    
+
     >form
       border-radius: 10px
       background: rgba(255, 255, 255, .9)
@@ -95,15 +95,15 @@ header
 
       input
         padding: 10px 0 10px 10px
-        width: 140px
+        width: 150px
         font-size: 14px
         border-radius: 10px
         box-shadow: 0 0 5px rgba(0, 0, 0, .2)
         margin-bottom: 15px
-      
+
       button
         padding: 8px 25px
-    
+
     +media-max(1200)
       right: 25px
 
@@ -126,7 +126,7 @@ header
       width: 100%
       font-size: 18px
       margin-bottom: 20px
-    
+
     input
       padding: 10px 0 10px 10px
       width: 240px
@@ -134,11 +134,11 @@ header
       border-radius: 10px
       margin-right: 20px
       box-shadow: 0 0 5px rgba(0, 0, 0, .1)
-    
+
     .callback-helper
       position: absolute
       bottom: 0
-      right: 150px
+      right: 170px
       transition: all .3s ease-out
       background: rgba(132, 239, 162, .95)
       font-size: 14px
@@ -146,16 +146,17 @@ header
       padding: 12px 0
       text-align: center
       width: 0
-      height: 17px
+      height: 40px
       overflow: hidden
       z-index: 90
       white-space: nowrap
 
       &.error
         background-color: $color-error
+        color: #fff1f1
 
       &.show
-        width: 250px
+        width: 240px
         padding: 12px 5px
         +media-max(1200)
           padding: 12px 5px
@@ -191,13 +192,13 @@ header
       width: 310px
       input
         width: 180px
-    
+
     +media-max(640)
       position: absolute
       top: 640px
       margin: 0
       left: calc(50% - 155px)
-  
+
   h1
     text-transform: uppercase
     margin-top: 110px
@@ -231,7 +232,7 @@ header
     font-size: 18px
     +media-max(1200)
       font-size: 15px
-  
+
   #header-image
     position: absolute
     top: 300px
@@ -239,7 +240,7 @@ header
 
     +media-max(1200)
       width: 500px
-    
+
     +media-max(1010)
       width: 50%
       top: calc(560px - 31vw)
@@ -275,7 +276,7 @@ header
 
       a
         font-size: 16px
-    
+
     +media-max(1010)
       ul
         flex-flow: wrap

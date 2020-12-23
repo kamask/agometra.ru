@@ -6,9 +6,6 @@ coffeescript = require "gulp-coffeescript"
 minify = require "gulp-minify"
 pug = require "gulp-pug"
 
-
-lastChangeHaml = 0
-
 exports.default = ->
     watch 'pug/**/*.pug', (cb) ->
         src ['pug/**/*.pug', '!pug/layouts/**/*.pug', '!pug/inc/**/*.pug']
@@ -29,14 +26,14 @@ exports.default = ->
         .pipe dest '../app/tpl'
         do cb
         return
-    
+
     watch 'coffee/**/*.coffee', (cb) ->
         src 'coffee/**/*.coffee'
         .pipe do coffeescript
         .pipe minify { ext: { min: '.js' }, noSource: true }
         .pipe dest '../public/js'
         .pipe dest 'js/'
-        
+
         src ['pug/**/*.pug', '!pug/layouts/**/*.pug', '!pug/inc/**/*.pug']
         .pipe pug { prettiy: false }
         .pipe dest '../app/tpl'
