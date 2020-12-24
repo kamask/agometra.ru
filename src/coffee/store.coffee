@@ -13,5 +13,13 @@ export updateFromWs = (ws_handlers) ->
     return
   return
 
+export initData = ->
+	new Promise (resolve) ->
+		if init then resolve store.dataFromServer
+		store.addObserver (target, property, val) ->
+			if property is 'dataFromServer'
+				resolve val
+			return
+		return
 
 window.getAgoStore = -> store

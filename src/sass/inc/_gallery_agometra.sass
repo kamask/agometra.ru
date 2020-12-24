@@ -1,0 +1,54 @@
+#gallery_agometra
+	padding: 20px
+
+	h2
+		text-align: center
+		color: $color-green
+		text-transform: uppercase
+
+	.slider
+		overflow: hidden
+		width: 800px
+		height: 600px
+		position: relative
+		margin: 0 auto
+
+		.slide
+			position: absolute
+			width: 100%
+			height: 100%
+			top: 0
+			right: -110%
+			display: flex
+			justify-content: center
+			align-items: center
+			padding: 25px
+			transition: all .3s ease-out
+
+			img
+				box-shadow: 0 0 8px rgba(0, 0, 0, .5)
+
+			span
+				position: absolute
+				top: 700px
+				left: 10px
+				display: block
+				width: 250px
+				padding: 15px 40px
+				color: $color-green
+				line-height: 1.25
+				background: #FADBC2
+				box-shadow: 0 0 10px rgba(0, 0, 0, .3)
+				transition: all .5s cubic-bezier(.4,1.64,.62,.81) .2s
+
+			&.show
+				right: 0
+
+				span
+					top: 50px
+
+			&.hide
+				right: 110%
+
+				span
+					top: 700px
