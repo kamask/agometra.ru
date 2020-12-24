@@ -1,0 +1,44 @@
+section#exact-sizes.block
+  h2 Размеры
+  #exact-sizes-controls
+    span.active 155 г/м²
+    span 135 г/м²
+    span 125 г/м²
+  table.exact-sizes
+    colgroup
+      - var i = 0
+      while i++ < 13
+        col
+    thead
+      tr
+        th
+        th(colspan="4") 155 г/м²
+        th(colspan="4") 135 г/м²
+        th(colspan="4") 125 г/м²
+      tr
+        th
+        - var i = 0
+        while i++ < 3
+          each i in ['A', 'B', 'C', 'D']
+            th= i
+    tbody
+      each s in ['S', 'M', 'L', 'XL', 'XXL']
+        tr
+          td= s
+          each d in ['155', '135', '125']
+            each w in ['A', 'B', 'C', 'D']
+              td(class=s+d) {{exact_sizes['#{d}']['#{s}']['#{w}']}}
+  
+  span ⟱
+
+  .view-sizes
+    .svg
+      include svg/shirt.svg
+    span#size-a A
+    span#size-b B
+    span#size-c C
+    span#size-d D
+
+  .comment <sup>*</sup>Все размеры указаны в сантиметрах
+script
+  include ../../js/exact-sizes.js

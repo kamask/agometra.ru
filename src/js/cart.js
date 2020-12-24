@@ -1,0 +1,1 @@
+import{makeObserveble,log}from"/js/ksk-lib.js";export var cart=makeObserveble({count:0,add:function(e){log(e)}});

@@ -1,0 +1,1 @@
+var init;import{makeObserveble}from"/js/ksk-lib.js";export var store=makeObserveble({});init=!1;export var updateFromWs=function(e){e.set("data-shirts-update",function(e){"all-init"!==(e=JSON.parse(e)).where||init||(init=!0,store.dataFromServer=makeObserveble(e.data))})};window.getAgoStore=function(){return store};
