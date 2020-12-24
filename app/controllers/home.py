@@ -3,7 +3,7 @@ from ..db import db
 
 async def home(request):
 	exact_sizes = dict()
-	raw = await db.fetch_all('''SELECT d.code as density, s.euro as size, a, b, c, d FROM exact_sizes as es 
+	raw = await db.fetch_all('''SELECT d.code as density, s.euro as size, a, b, c, d FROM exact_sizes as es
 							  						JOIN density as d ON es.density_id = d.id
 														JOIN sizes as s ON es.size_id = s.id''')
 
@@ -14,7 +14,7 @@ async def home(request):
 		exact_sizes[str(i['density'])][i['size']]['B'] = i['b']
 		exact_sizes[str(i['density'])][i['size']]['C'] = i['c']
 		exact_sizes[str(i['density'])][i['size']]['D'] = i['d']
-		
+
 	return tpl.TemplateResponse('index.html', {
 			'request': request,
 			'title': 'Купить футболки оптом',
