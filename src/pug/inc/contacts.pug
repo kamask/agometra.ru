@@ -1,0 +1,31 @@
+section#contacts.block
+	h2 Как нас найти
+	#map
+	.info
+		p
+			include svg/map_icon.svg
+			.
+				Адрес: 109380, г. Москва, ул.Чагинская, дом 13, стр. 5
+		p На КПП сказать - в компанию Агометра, затем прямо до конца, по левой стороне будет большой ангар с цифрой 5, это наш склад.
+		p
+			include svg/tel_icon.svg
+			.
+				Телефон: #[a(href="tel:+79295335535") +7 (929) 533 55 35]
+		p
+			include svg/mail_icon.svg
+			.
+				E-mail: #[a(href="mailto:info@agometra.ru") info@agometra.ru]
+		p
+			include svg/clock_icon.svg
+			.
+				Режим работы: с 8.00 до 19.00 (ежедневно)
+		.social
+			a(href="https://wa.me/79295335535?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%F0%9F%91%8B%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8!" target="_blank")
+				include svg/whatsapp.svg
+			a(href="https://t.me/Agometrafutbolki" target="_blank")
+				include svg/telegram_icon.svg
+			a(href="https://instagram.com/futbolkioptomoskva" target="_blank")
+				include svg/insta_icon.svg
+script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
+script
+	include ../../js/map-block-contacts.js

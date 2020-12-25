@@ -10,7 +10,7 @@ export handleInputTel = ($input) ->
       $input.value = '+7 (___) ___-__-__'
       $input.setSelectionRange 4, 4
     return
-  
+
   ev $input, 'input', (e) ->
     do e.preventDefault
 
@@ -39,7 +39,7 @@ export handleInputTel = ($input) ->
           userInput = '8' + userInput
           continue
       inputOut = inputOut.replace '_', userInput[i]
-    
+
     $input.value = inputOut[...18]
     curPos = inputOut.indexOf '_'
     $input.setSelectionRange curPos, curPos
@@ -71,7 +71,7 @@ export divHelperInsert = ($el, className, textAccess, error = null) ->
   setTimeout (->
     $helper.classList.add 'show'
     setTimeout (->
-      do hideHelper
+      # do hideHelper
       return
       ), 3000
     return
