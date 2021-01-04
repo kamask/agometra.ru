@@ -44,7 +44,7 @@ export animation = (current, moveVal, duration, setNewVal, timing = 'linear',
     start = do performance.now
     if animateIdForCancel
       cancelAnimationFrame animateIdForCancel
-    
+
     funcs = {
       linear: (t) -> t
       quad: (t, x = 2) -> Math.pow t, x
@@ -81,7 +81,7 @@ export animation = (current, moveVal, duration, setNewVal, timing = 'linear',
       if tF < 1
         requestAnimFrame animate
       return
-  
+
     return requestAnimFrame animate
 
 export makeObserveble = (obj) ->

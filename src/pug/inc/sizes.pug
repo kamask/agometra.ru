@@ -27,7 +27,7 @@ section#exact-sizes.block
           td= s
           each d in ['155', '135', '125']
             each w in ['A', 'B', 'C', 'D']
-              td(class=s+d) {{exact_sizes['#{d}']['#{s}']['#{w}']}}
+              td(class=s+d) {{ exact_sizes['#{d}']['#{s}']['#{w}'] if exact_sizes}}
   
   span ⟱
 
@@ -41,4 +41,4 @@ section#exact-sizes.block
 
   .comment <sup>*</sup>Все размеры указаны в сантиметрах
 script
-  include ../../js/exact-sizes.js
+  include js/exact-sizes.js
