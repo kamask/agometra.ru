@@ -6,6 +6,7 @@
 /src/yarn-error.log
 
 /app/config.py
+/app/tpl/inc/
 **/*.pyc
 /__pycache__
 **/__pycache__
