@@ -1,5 +1,6 @@
 import { el, ev, findParent, log } from "/js/ksk-lib.js"
 import { ws, ws_handlers } from '/js/ws.js'
+import "/js/analytics.js"
 import "/js/smooth-scroll.js"
 import "/js/header.js"
 import "/js/callback-form.js"
@@ -9,6 +10,7 @@ import "/js/shirts-options.js"
 import "/js/shirts-slider.js"
 import "/js/shirts-calc.js"
 import "/js/gallery_agometra.js"
+import "/js/ymap.js"
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'
