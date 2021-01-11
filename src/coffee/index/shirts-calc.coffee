@@ -1,9 +1,9 @@
-import { log, el, els, ev, makeObserveble, nodeObserver, newEl, animation } from '/js/ksk-lib.js'
-import { handleInputTel } from '/js/ago-lib.js'
-import { current } from '/js/shirts-options.js'
-import { store } from '/js/store.js'
-import { cart } from '/js/cart.js'
-import { ws, ws_handlers } from '/js/ws.js'
+import { log, el, els, ev, makeObserveble, nodeObserver, newEl, animation } from '../ksk-lib.js'
+import { handleInputTel } from '../ago-lib.js'
+import { ws, ws_handlers } from '../ws.js'
+import { cart } from '../cart.js'
+import { store } from './store.js'
+import { current } from './shirts-options.js'
 
 state = makeObserveble {}
 $controls = el '#calc-controls'
@@ -85,7 +85,7 @@ current.addObserver (target, prop, val) ->
       $input = document.createElement 'input'
       $p.append $input
       $input.value = state[s.article] ? '0'
-      
+
       showing = false
       validCount = ->
         if state[s.article]
@@ -102,7 +102,7 @@ current.addObserver (target, prop, val) ->
                 $alert.classList.add 'show'
                 return
                 ), 100
-              
+
               hide = ->
                 $alert.classList.remove 'show'
                 setTimeout (->
@@ -118,7 +118,7 @@ current.addObserver (target, prop, val) ->
                 do hide
                 return
               ev (el 'span', $alert), 'click', hide
-            
+
         if state[s.article] < 0
           state[s.article] = 0
           $input.value = 0
@@ -195,7 +195,7 @@ alertActions = (text, error = false, delayHide = 5000) ->
   setTimeout (-> $alert.classList.add 'show'), 100
   if document.documentElement.clientWidth < 600
     setTimeout (-> $alert.scrollIntoView false), 500
-    
+
   hide = -> $alert.classList.remove 'show'
   ev $alert, 'transitionend', (e) ->
     if not ($alert.classList.contains 'show') and e.propertyName is 'opacity'

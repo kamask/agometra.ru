@@ -4,7 +4,7 @@ html(lang='ru')
 	head
 		meta(charset='UTF-8')
 		title {{title}}
-		meta(name="description" content="Футболки оптом. Фабрика. Доставка по всей России.")
+		meta(name="description" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
 		meta(name="keywords" content="{% include 'inc/keywords.txt' ignore missing %}")
 		meta(name='viewport' content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="ie=edge")
@@ -15,8 +15,24 @@ html(lang='ru')
 		link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
 		meta(name="msapplication-TileColor" content="#da532c")
 		meta(name="theme-color" content="#ffffff")
-		script.
-			!function(e){"use strict";var t=function(t,n,r,o){var i,a=e.document,d=a.createElement("link");if(n)i=n;else{var f=(a.body||a.getElementsByTagName("head")[0]).childNodes;i=f[f.length-1]}var l=a.styleSheets;window.AGOWSSURL='{{wssurl}}';if(o)for(var s in o)o.hasOwnProperty(s)&&d.setAttribute(s,o[s]);d.rel="stylesheet",d.href=t,d.media="only x",function e(t){if(a.body)return t();setTimeout(function(){e(t)})}(function(){i.parentNode.insertBefore(d,n?i:i.nextSibling)});var u=function(e){for(var t=d.href,n=l.length;n--;)if(l[n].href===t)return e();setTimeout(function(){u(e)})};function c(){d.addEventListener&&d.removeEventListener("load",c),d.media=r||"all"}return d.addEventListener&&d.addEventListener("load",c),d.onloadcssdefined=u,u(c),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nBrXyw023e.woff" as="font" type="font/woff" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nBrXyw023e.woff2" as="font" type="font/woff2" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff" as="font" type="font/woff" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff2" as="font" type="font/woff2" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff" as="font" type="font/woff" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff2" as="font" type="font/woff2" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff" as="font" type="font/woff" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff2" as="font" type="font/woff2" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff" as="font" type="font/woff" crossorigin)
+		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2" as="font" type="font/woff2" crossorigin)
+		link(rel="preconnect" href="https://mc.yandex.ru")
+		link(rel="preconnect" href="https://api-maps.yandex.ru")
+		link(rel="preconnect" href="https://yastatic.net")
+		link(rel="preconnect" href="https://core-renderer-tiles.maps.yandex.net")
+		script
+			.
+				!function(e){"use strict";var t=function(t,n,r,o){var i,a=e.document,d=a.createElement("link");if(n)i=n;else{var f=(a.body||a.getElementsByTagName("head")[0]).childNodes;i=f[f.length-1]}var l=a.styleSheets;window.AGOHOST='{{host}}';if(o)for(var s in o)o.hasOwnProperty(s)&&d.setAttribute(s,o[s]);d.rel="stylesheet",d.href=t,d.media="only x",function e(t){if(a.body)return t();setTimeout(function(){e(t)})}(function(){i.parentNode.insertBefore(d,n?i:i.nextSibling)});var u=function(e){for(var t=d.href,n=l.length;n--;)if(l[n].href===t)return e();setTimeout(function(){u(e)})};function c(){d.addEventListener&&d.removeEventListener("load",c),d.media=r||"all"}return d.addEventListener&&d.addEventListener("load",c),d.onloadcssdefined=u,u(c),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this);
+			include ../inc/js/lazy-loading.js
 		style
 			include ../inc/css/style.css
 		block head_scripts
@@ -26,5 +42,4 @@ html(lang='ru')
 		include ../inc/preloader.pug
 		block body
 		block footer_scripts
-			script(async type="module" src="/js/main.js" )
 		| {% include 'inc/footer.html' ignore missing %}

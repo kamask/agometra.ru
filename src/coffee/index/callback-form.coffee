@@ -1,6 +1,6 @@
-import { ev, el, log } from '/js/ksk-lib.js'
-import { handleInputTel, divHelperInsert } from '/js/ago-lib.js'
-import { ws, ws_handlers } from '/js/ws.js'
+import { ev, el, log } from '../ksk-lib.js'
+import { handleInputTel, divHelperInsert } from '../ago-lib.js'
+import { ws, ws_handlers } from '../ws.js'
 
 $form = el '#callback-form'
 $input = el '#callback-form-input'

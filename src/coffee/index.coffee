@@ -1,21 +1,23 @@
-import { el, ev, findParent, log } from "/js/ksk-lib.js"
-import { ws, ws_handlers } from '/js/ws.js'
+import { el, ev, newEl } from "./ksk-lib.js"
+import { ws, ws_handlers } from './ws.js'
+import "./smooth-scroll.js"
 
-import "/js/smooth-scroll.js"
-import "/js/header.js"
-import "/js/callback-form.js"
-import "/js/ws.js"
-import "/js/lk-form.js"
-import "/js/shirts-options.js"
-import "/js/shirts-slider.js"
-import "/js/shirts-calc.js"
-import "/js/gallery_agometra.js"
+import "./index/header.js"
+import "./index/callback-form.js"
+import "./index/lk-form.js"
+import "./index/shirts-options.js"
+import "./index/shirts-slider.js"
+import "./index/shirts-calc.js"
+import "./index/gallery_agometra.js"
+import { navTopInit } from "./index/lk-form.js"
 
+export jsmLoad = (name) ->
+	import('/js/' + name)
 
-window.onload = ->
-	import("/js/analytics.js")
-	import("/js/ymap.js")
-	return
+ev window, 'load', -> jsmLoad 'ymap.js'
+
+if AGOHOST == 'agometra.ru'
+	jsmLoad('analytics.js').then -> console.log 'Module loading'
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'
@@ -70,7 +72,4 @@ ev document, 'scroll', (e) ->
       $nav.style.top = '-90px'
   return
 
-do ->
-  lkForm = await import('/js/lk-form.js')
-  do lkForm.navTopInit
-  return
+do navTopInit

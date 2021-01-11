@@ -1,4 +1,4 @@
-import { el, ev, els } from '/js/ksk-lib.js'
+import { el, ev, els } from '../ksk-lib.js'
 
 $logo = el '#logo-svg'
 $img = el '#header-image'

@@ -1,6 +1,6 @@
-import { log, el, ev, makeObserveble, nodeObserver, els } from '/js/ksk-lib.js'
-import { store } from '/js/store.js'
-import { ws_handlers } from '/js/ws.js'
+import { el, ev, makeObserveble, nodeObserver, els } from '../ksk-lib.js'
+import { ws_handlers } from '../ws.js'
+import { store } from './store.js'
 
 export current = makeObserveble {
   density: null
@@ -34,7 +34,7 @@ renderDensityOptions = ->
     $densityItem.innerText = d.code + ' г/м²'
     $densityList.append $densityItem
 
-  
+
   $densityPrice.before $densityList
 
   nodeObserver $densityList, {
@@ -55,7 +55,7 @@ renderDensityOptions = ->
 
   for $li, i in els 'li', $densityList
     if i == 0 then $li.classList.add 'active'
-      
+
     ev $li, 'click', (e) ->
       if not @classList.contains 'active'
         el '.active', $densityList
@@ -63,7 +63,7 @@ renderDensityOptions = ->
         @classList.add 'active'
       return
 
-  
+
   return
 
 $colorsOptions = el '.color', $options
@@ -124,7 +124,7 @@ renderCount = ->
   if t then do t.remove
 
   shirts.sort (a, b) -> a.id - b.id
-  
+
   $existenceList = document.createElement 'ul'
   for s in shirts
     size = (sizes.find (i) -> i.id is s.size_id).euro
@@ -135,7 +135,7 @@ renderCount = ->
 
   t = el 'ul', $expectedOptions
   if t then do t.remove
-  
+
   if expected.length > 0
     $expectedList = document.createElement 'ul'
     for e in expected

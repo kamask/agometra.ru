@@ -1,4 +1,4 @@
-import { makeObserveble, log } from '/js/ksk-lib.js'
+import { makeObserveble, log } from './ksk-lib.js'
 
 export cart = makeObserveble {
   count: 0

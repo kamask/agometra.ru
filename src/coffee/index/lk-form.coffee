@@ -1,6 +1,6 @@
-import { el, ev, findParent, log } from "/js/ksk-lib.js"
-import { handleInputTel, divHelperInsert } from '/js/ago-lib.js'
-import { ws, ws_handlers } from '/js/ws.js'
+import { el, ev, findParent, log } from "../ksk-lib.js"
+import { handleInputTel, divHelperInsert } from '../ago-lib.js'
+import { ws, ws_handlers } from '../ws.js'
 
 handleLkForm = (formSelector, buttonSelector) ->
   $lkNavButton = el buttonSelector
@@ -19,13 +19,13 @@ handleLkForm = (formSelector, buttonSelector) ->
         ), 250
     else
       $form.style.display = 'flex'
-    
+
     setTimeout (->
       $form.classList.toggle 'show'
       return
       ), 0
     return
-    
+
   ev document, 'click', (e) ->
     isClickedForm = Boolean((findParent e.target, $form) or
     (e.target == $form) or

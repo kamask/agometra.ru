@@ -1,5 +1,5 @@
-import { log, newEl, ev, el } from '/js/ksk-lib.js'
-import { initData } from '/js/store.js'
+import { newEl, ev, el } from '../ksk-lib.js'
+import { initData } from './store.js'
 
 loadImg = (img) ->
 	$img = newEl 'picture'

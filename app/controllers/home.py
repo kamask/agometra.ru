@@ -23,6 +23,6 @@ async def home(request):
 	return tpl.TemplateResponse('index.html', {
 			'request': request,
 			'title': 'Купить футболки оптом',
-			'wssurl': f'wss://{HOST}/ws',
+			'host': HOST,
 			'exact_sizes': exact_sizes
 		})

@@ -5,6 +5,7 @@ cssmin = require "gulp-cssmin"
 coffeescript = require "gulp-coffeescript"
 minify = require "gulp-minify"
 pug = require "gulp-pug"
+rollup = require "gulp-rollup"
 
 
 pug_pug_build = ->
@@ -43,11 +44,17 @@ coffee_build = (path) ->
 
 exports.default = ->
 
-	watch 'coffee/*.coffee'
-	.on 'all', (type_event, path) ->
-		coffee_build path
-		console.log type_event, path
-		return
+	watch 'coffee/**/*.coffee', (cb) ->
+		src 'coffee/**/*.coffee'
+		.pipe coffeescript { bare: true }
+		.pipe rollup { input: [
+			'coffee/index.js'
+			'coffee/analytics.js'
+			'coffee/ymap.js'
+			], output: { format: 'es', dir: '/js/'}}
+		.pipe minify { ext: { min: '.js' }, noSource: true }
+		.pipe dest '../public/js'
+		do cb
 
 	watch 'pug/inc/coffee/*.coffee'
 	.on 'all', (type_event, path) ->

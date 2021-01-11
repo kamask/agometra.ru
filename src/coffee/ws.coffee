@@ -1,22 +1,14 @@
-import { log } from '/js/ksk-lib.js'
-import { updateFromWs } from '/js/store.js'
+import { log } from './ksk-lib.js'
 
 export ws_handlers = new Map
 
-updateFromWs ws_handlers
-
-export ws = new WebSocket window.AGOWSSURL
+export ws = new WebSocket "wss://#{window.AGOHOST}/ws"
 
 wsInit = ->
   if ws.readyState is 3
     try
-      ws = new WebSocket window.AGOWSSURL
-    catch error
-      log error
-
-  ws.onopen = (e) ->
-    log "WebSocket conneсted"
-    return
+      ws = new WebSocket "wss://#{window.AGOHOST}/ws"
+    catch
 
   ws.onmessage = (e) ->
     data = JSON.parse(e.data)
@@ -27,12 +19,10 @@ wsInit = ->
     return
 
   ws.onclose = (e) ->
-    log "WebSocket closed"
     setTimeout wsInit, 500
     return
 
   ws.onerror = (e) ->
-    log "WebSocket error: " + e.message
     setTimeout wsInit, 500
     return
 

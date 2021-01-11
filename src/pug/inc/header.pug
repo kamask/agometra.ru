@@ -14,7 +14,7 @@ header.block
     p: a(href="tel://+79998713317") +7 (999) 871-33-17
 
   #logo-svg
-    include svg/logo.svg
+    img(src="/images/logo.svg" alt="Logo-Agometra" loading="lazy")
 
   form#callback-form
     label.text-green(for="callback-form-input") Перезвоним и расскажем всё в деталях
@@ -33,6 +33,6 @@ header.block
   
   picture#header-image
     source(srcset="/images/fabrik-illustration.webp" type="image/webp")
-    img(src="/images/fabrik-illustration.png" alt="Fabrik Illustration")
+    img(src="/images/fabrik-illustration.png" alt="Fabrik Illustration" loading="lazy")
 
   include nav.pug

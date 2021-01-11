@@ -1,4 +1,4 @@
-import { ev, log } from '/js/ksk-lib.js'
+import { ev, log } from './ksk-lib.js'
 
 export handleInputTel = ($input) ->
   userInput = ''
