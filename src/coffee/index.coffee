@@ -14,11 +14,18 @@ import { navTopInit } from "./index/lk-form.js"
 export jsmLoad = (name) ->
 	import('/js/' + name + '?ver=' + window.AGO_CACHE_VERSION)
 
-ev document.documentElement, 'mousemove', ->
+loadOtherScripts = ->
+	document.documentElement.removeEventListener 'mousemove', loadOtherScripts
+	document.documentElement.removeEventListener 'click', loadOtherScripts
+	window.removeEventListener 'scroll', loadOtherScripts
 	jsmLoad 'ymap.js'
 	if AGOHOST == 'agometra.ru'
 		jsmLoad('analytics.js')
 	return
+
+ev document.documentElement, 'mousemove', loadOtherScripts
+ev document.documentElement, 'click', loadOtherScripts
+ev window, 'scroll', loadOtherScripts
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'
