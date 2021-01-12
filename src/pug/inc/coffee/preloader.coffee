@@ -1,11 +1,9 @@
 preloaderContainer = document.getElementById('preloaderContainer')
 windowLoadHandler = ->
-  preloaderContainer.style.opacity = '0'
-  setTimeout (->
-    # document.body.classList.remove('preload')
-    preloaderContainer.remove()
-    window.removeEventListener 'load', windowLoadHandler
-    return
-    ), 200
-  return
+	window.removeEventListener 'load', windowLoadHandler
+	preloaderContainer.style.opacity = '0'
+	preloaderContainer.addEventListener 'transitionend', ->
+		window.scrollTo 0, 0
+		do this.remove
+		return
 window.addEventListener 'load', windowLoadHandler

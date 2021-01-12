@@ -1,6 +1,6 @@
 extends layouts/main.pug
 block head_scripts
-  +css('/css/404.css')
+  link(rel="preload" href="/css/404.css?ver={{cache_version}}" as="style" onload="this.rel='stylesheet'")
 block body
   #logoSVG
     img(src="/images/logo.svg" alt="Logo-Agometra")

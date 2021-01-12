@@ -1,14 +1,4 @@
-log = (...t) -> console.log ...t
-
-el = (selector, parrent = document) ->
-  parrent.querySelector selector
-
-els = (selector, parrent = document) ->
-  parrent.querySelectorAll selector
-
-ev = (el, event, handler) ->
-  el.addEventListener event, handler
-  return
+import { el, els, ev } from '../ksk-lib.js'
 
 $sizeA = el '#size-a'
 $sizeB = el '#size-b'

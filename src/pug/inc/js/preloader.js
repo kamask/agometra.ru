@@ -1,1 +1,1 @@
-(function(){var e,n;e=document.getElementById("preloaderContainer"),n=function(){e.style.opacity="0",setTimeout(function(){e.remove(),window.removeEventListener("load",n)},200)},window.addEventListener("load",n)}).call(this);
+(function(){var e,n;e=document.getElementById("preloaderContainer"),n=function(){return window.removeEventListener("load",n),e.style.opacity="0",e.addEventListener("transitionend",function(){window.scrollTo(0,0),this.remove()})},window.addEventListener("load",n)}).call(this);
