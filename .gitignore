@@ -7,6 +7,10 @@
 
 /app/config.py
 /app/tpl/inc/
+
 **/*.pyc
 /__pycache__
 **/__pycache__
+
+sync.sh
+backup_static_from_prod_to_cloud.sh

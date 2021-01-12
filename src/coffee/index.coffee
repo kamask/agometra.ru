@@ -1,4 +1,4 @@
-import { el, ev, newEl } from "./ksk-lib.js"
+import { el, ev, newEl, findParent } from "./ksk-lib.js"
 import { ws, ws_handlers } from './ws.js'
 import "./smooth-scroll.js"
 
