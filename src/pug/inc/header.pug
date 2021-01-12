@@ -1,38 +1,36 @@
 header.block
-  .lk-client
-    div
-      #user-icon-svg
-        include svg/user.svg
-      span Кабинет клиента
-    form
-      input(name="login" placeholder="+7 (999) 999-99-99" autocomplete="off" type="text")
-      button.button-green(type="submit") Далее
-  
-  address
-    p: a(href="https://yandex.ru/maps/org/agometra/244048201602" target="_blank") г. Москва, Чагинская 13 стр. 5
-    p Ежедневно с #[time(datetime="08:00+03:00") 8.00] до #[time(datetime="18:00+03:00") 18.00]
-    p: a(href="tel://+79998713317") +7 (999) 871-33-17
+	.lk-client
+		div
+			#user-icon-svg
+				include svg/user.svg
+			span Кабинет клиента
+		form
+			input(name="login" placeholder="+7 (999) 999-99-99" autocomplete="off" type="text")
+			button.button-green(type="submit") Далее
 
-  #logo-svg
-    img(src="/images/logo.svg" alt="Logo-Agometra" loading="lazy")
+	address
+		p: a(href="https://yandex.ru/maps/org/agometra/244048201602" target="_blank") г. Москва, Чагинская 13 стр. 5
+		p Ежедневно с #[time(datetime="08:00+03:00") 8.00] до #[time(datetime="18:00+03:00") 18.00]
+		p: a(href="tel://+79998713317") +7 (999) 871-33-17
 
-  form#callback-form
-    label.text-green(for="callback-form-input") Перезвоним и расскажем всё в деталях
-    input#callback-form-input(type="text" autocomplete="off" name="number" placeholder="+7 (999) 999-99-99")
-    button.button-green(type="submit") Жду звонка
+	#logo-svg
+		picture
+			source(srcset="/images/logo.webp" type="image/webp")
+			img(src="/images/logo.png" alt="Logo-Agometra")
 
-  h1.text-green ФУТБОЛКИ ОПТОМ 
-    br/
-    span от производителя
-  
-  p Если Вы ищете - <br>#[mark “футболки оптом от производителя”]<br> то Вы одназначно зашли куда нужно!
-  br/
-  p Самое высокое качество продукции!<br>Самые низкие цены оптом и в розницу!<br>Работаем по всей России!<br>Любая форма оплаты!
-  br/
-  p Фабрика в Узбекистане, #[strong склад в Москве.<br>Постоянный] #[strong неснижаемый остаток] на<br>складе не менее 70 000 шт.
-  
-  picture#header-image
-    source(srcset="/images/fabrik-illustration.webp" type="image/webp")
-    img(src="/images/fabrik-illustration.png" alt="Fabrik Illustration" loading="lazy")
+	form#callback-form
+		label.text-green(for="callback-form-input") Перезвоним и расскажем всё в деталях
+		input#callback-form-input(type="text" autocomplete="off" name="number" placeholder="+7 (999) 999-99-99")
+		button.button-green(type="submit") Жду звонка
 
-  include nav.pug
+	h1.text-green ФУТБОЛКИ ОПТОМ
+		br/
+		span от производителя
+
+	p Если Вы ищете - <br>#[mark “футболки оптом от производителя”]<br> то Вы одназначно зашли куда нужно!
+	br/
+	p Самое высокое качество продукции!<br>Самые низкие цены оптом и в розницу!<br>Работаем по всей России!<br>Любая форма оплаты!
+	br/
+	p Фабрика в Узбекистане, #[strong склад в Москве.<br>Постоянный] #[strong неснижаемый остаток] на<br>складе не менее 70 000 шт.
+
+	include nav.pug

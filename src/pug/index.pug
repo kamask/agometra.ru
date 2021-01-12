@@ -1,6 +1,14 @@
 extend layouts/main.pug
-block head_scripts
-	+css('/css/index.css')
+block prepend head_scripts
+	meta(name="description" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
+	meta(name="keywords" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
+	+css('/css/index.css?ver={{cache_version}}')
+	//- link(rel="preload" href="/js/ymap.js?ver={{cache_version}}" as="script")
+	link(rel="prefetch" href="/images/logo.png" as="image" type="image/png")
+	link(rel="preload" href="/images/logo.webp" as="image" type="image/webp")
+	link(rel="dns-prefetch" href="https://api-maps.yandex.ru")
+	link(rel="dns-prefetch" href="https://yastatic.net")
+	link(rel="dns-prefetch" href="https://core-renderer-tiles.maps.yandex.net")
 block body
 	#main-container
 		include inc/header.pug
@@ -11,4 +19,4 @@ block body
 		include inc/contacts.pug
 		include inc/footer.pug
 block footer_scripts
-	script(type="module" src="/js/index.js" )
+	script(type="module" src="/js/index.js?ver={{cache_version}}" )

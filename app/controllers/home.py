@@ -1,6 +1,9 @@
+from datetime import datetime
 from ..templates import tpl
 from ..db import db
 from ..config import HOST
+
+uptime = str(int(datetime.now().timestamp()))
 
 async def home(request):
 	exact_sizes = dict()
@@ -23,6 +26,7 @@ async def home(request):
 	return tpl.TemplateResponse('index.html', {
 			'request': request,
 			'title': 'Купить футболки оптом',
+			'cache_version': uptime,
 			'host': HOST,
 			'exact_sizes': exact_sizes
 		})

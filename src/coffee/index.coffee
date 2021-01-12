@@ -12,12 +12,13 @@ import "./index/gallery_agometra.js"
 import { navTopInit } from "./index/lk-form.js"
 
 export jsmLoad = (name) ->
-	import('/js/' + name)
+	import('/js/' + name + '?ver=' + window.AGO_CACHE_VERSION)
 
-ev window, 'load', -> jsmLoad 'ymap.js'
-
-if AGOHOST == 'agometra.ru'
-	jsmLoad('analytics.js').then -> console.log 'Module loading'
+ev document.documentElement, 'mousemove', ->
+	jsmLoad 'ymap.js'
+	if AGOHOST == 'agometra.ru'
+		jsmLoad('analytics.js')
+	return
 
 $nav = document.createElement 'nav'
 $nav.id = 'nav-top'
