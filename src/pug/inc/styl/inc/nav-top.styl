@@ -1,0 +1,174 @@
+.burger
+	position fixed
+	display block
+	top 5px
+	left 5px
+	color colors.green
+	border 1px solid colors.green
+	border-radius 10px
+	padding 8px
+	width 48px
+	height 42px
+	cursor pointer
+	{notouchehiligt}
+	z-index 6
+	background color rgba(255, 255, 255, .8)
+
+	>svg
+		fill colors.green
+		user-select none
+
+	+media-min(768)
+		display none
+
+.nav-top
+	position fixed
+	background #fff
+	width 100%
+	padding 5px
+	display grid
+	columns 130px 1fr 150px
+	border-radius 0 0 25px 25px
+	shadow()
+	top -120px
+	transition top .3s ease-out, left .3s ease-out, opacity .3s ease-out
+
+	&.show
+		top 0
+		z-index 15
+
+	+media-min(1200)
+		max-width 1140px
+		left 50%
+		transform translateX(-50%)
+
+	+media-max(900)
+		columns 90px 1fr 120px
+
+	.close-button
+		padding 5px 0 0 5px
+		cursor pointer
+		{notouchehiligt}
+		>svg
+			fill colors.green
+
+		+media-min(768)
+			display none
+
+	+media-max(767)
+		width 300px
+		height 100vh
+		columns 30px 1fr 130px
+		rows 140px 1fr 100px
+		border-radius 0 15px 15px 0
+		top 0
+		left -305px
+		opacity 0
+
+		&.show
+			left 0
+			opacity 1
+
+	>svg
+		row span 2
+
+		+media-max(767)
+			column 2
+			row 1
+			transform scale(1.8)
+			position relative
+			left 40px
+			top 30px
+
+
+	address
+		display flex
+		padding-top 5px
+
+		p
+			font-style normal
+			margin 0 20px
+			font-size 14px
+
+		+media-max(1070)
+			justify-content center
+
+		p
+			margin 0 10px
+			font-size 12px
+
+		+media-max(830)
+			position relative
+			left -50px
+			width 110%
+
+			p
+				margin-left 5px
+
+		+media-max(767)
+			row 3
+			column span 3
+			margin 0
+			left 0
+			width auto
+			flex-direction column
+			align-items center
+
+			p
+				margin-bottom 8px
+
+	.lk-client
+		position relative
+
+		.link
+			cursor pointer
+			display flex
+			align-items center
+			{notouchehiligt}
+
+			&:hover
+				svg
+					fill colors.green
+				span
+					color colors.green
+
+			svg
+				width 20px
+				margin-right 5px
+
+			span
+				font-size 14px
+
+				+media-max(1070)
+					font-size 12px
+
+	nav
+		column span 2
+		ul
+			display flex
+			justify-content center
+			align-items flex-end
+			height 100%
+			padding-bottom 5px
+
+		li
+			margin 0 25px
+
+			a
+				color colors.green
+				font-size 18px
+				text-transform uppercase
+
+				+media-max(1070)
+					font-size 15px
+
+		+media-max(767)
+			column span 3
+
+			ul
+				flex-direction column
+				align-items center
+				justify-content flex-start
+
+			li
+				margin-bottom 10px

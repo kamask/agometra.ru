@@ -2,21 +2,17 @@ extend layouts/main.pug
 block prepend head_scripts
 	meta(name="description" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
 	meta(name="keywords" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
-	link(rel="preload" href="/css/index.css?ver={{cache_version}}" as="style" onload="this.rel='stylesheet'")
-	link(rel="prefetch" href="/images/logo.png" as="image" type="image/png")
-	link(rel="preload" href="/images/logo.webp" as="image" type="image/webp")
-	link(rel="dns-prefetch" href="https://api-maps.yandex.ru")
-	link(rel="dns-prefetch" href="https://yastatic.net")
-	link(rel="dns-prefetch" href="https://core-renderer-tiles.maps.yandex.net")
+	meta(rel="prefetch" href="/images/shirts.webp")
+	meta(rel="prefetch" href="/images/shirts.png")
+	style
+		include index/css/style.css
 block body
-	#main-container
-		include inc/header.pug
-		include inc/shirts.pug
-		include inc/advantages.pug
-		include inc/sizes.pug
-		include inc/gallery_agometra.pug
-		include inc/contacts.pug
-		include inc/footer.pug
-block footer_scripts
+	include index/header.pug
+	include index/shirts.pug
+	include index/advantages.pug
+	include index/sizes.pug
+	include index/gallery-agometra.pug
+	include index/contacts.pug
+block append footer_scripts
 	script
-		include inc/js/index.js
+		include index/js/script.js

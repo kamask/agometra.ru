@@ -1,0 +1,361 @@
+header
+	display grid
+	padding 20px 50px 20px
+	position relative
+	columns 1fr 1fr
+	rows auto 300px auto
+
+	+media-max(991)
+		padding 20px 20px 10px
+		rows auto 260px auto
+
+	+media-max(767)
+		padding 5px 20px 20px
+		display block
+
+	+media-max(575)
+		padding 5px 10px 20px
+
+	address
+		display flex
+		align-items center
+		font-size 14px
+		font-style normal
+		column span 2
+
+		>p
+			margin-right 20px
+			text-align center
+
+			a
+				{notouchehiligt}
+
+		+media-max(1200)
+			>p
+				margin-right 20px
+
+		+media-max(991)
+			font-size 12px
+			>p
+				margin-right 15px
+
+		+media-max(767)
+			display block
+			>p
+				display block
+				text-align right
+				margin 10px 0
+
+	#logo-svg
+		position relative
+		z-index 5
+		row 2
+		align-self center
+
+		>svg
+			width auto
+		+media-max(991)
+			width 300px
+		+media-max(767)
+			margin -90px auto 40px
+
+	.lk-client
+		position absolute
+		top 18px
+		right 10px
+		width 140px
+
+		.link
+			display flex
+			cursor pointer
+			align-items center
+			z-index 11
+			{notouchehiligt}
+
+			>svg
+				display inline
+				width 20px
+				margin-right 5px
+
+			span
+				font-size 14px
+
+			&:hover
+				>svg
+					fill colors.green
+				span
+					color colors.green
+
+		+media-max(991)
+			right -8px
+			top 15px
+
+			.link
+				span
+					font-size 12px
+
+				>svg
+					margin-right 3px
+
+		+media-max(767)
+			display none
+
+		form
+			height 0
+			padding 0 10px
+			overflow hidden
+
+	#callback-form
+		align-self center
+		padding-left 50px
+		position relative
+
+		label
+			display block
+			font-size 18px
+			color colors.green
+			margin-bottom 20px
+
+		input
+			padding 12px 0 12px 10px
+			width 240px
+			font-size 14px
+			border-radius 10px
+			margin-right 20px
+			box-shadow 0 0 5px rgba(0, 0, 0, .1)
+
+		button
+			{notouchehiligt}
+
+		+media-max(991)
+			label
+				text-align center
+				width 230px
+			input
+				font-size 14px
+				margin-bottom 20px
+			button
+				margin-left 60px
+
+		+media-max(767)
+			margin 0
+			width 100%
+			padding-left 0
+			text-align center
+			label
+				width 100%
+			input
+				width 180px
+				font-size 12px
+				padding 10px 0 10px 10px
+				margin-right 10px
+			button
+				margin-left 0
+
+		+media-max(449)
+			label
+				margin 0 auto 10px
+				width 230px
+
+		.callback-helper
+			position absolute
+			bottom 0
+			right 230px
+			transition width .3s ease-out, opacity .3s ease-out
+			background rgba(132, 239, 162, .95)
+			font-size 14px
+			border-radius 10px
+			padding 12px 0
+			text-align center
+			width 0
+			opacity 0
+			height 40px
+			overflow hidden
+			z-index 5
+			white-space nowrap
+
+			&.error
+				background-color colors.error
+				color #fff1f1
+
+			&.show
+				width 240px
+				padding 12px 5px
+				opacity 1
+
+			+media-max(1199)
+				right 150px
+			+media-max(991)
+				top 60px
+				right 70px
+			+media-max(767)
+				top 40px
+				right 220px
+				font-size 12px
+				height 34px
+				padding 9px 0
+				&.show
+					width 180px
+					padding 9px 0
+			+media-max(575)
+				right calc(50% + 60px)
+				transform translateX(50%)
+				&.show
+					width 190px
+			+media-max(449)
+				top 50px
+			+media-max(334)
+				right 50%
+
+	.bonus
+		column 2
+		row 3
+		width 440px
+		background (colors.bonus-bg)
+		shadow()
+		border-radius 25px
+		justify-self center
+		text-align center
+		position relative
+		padding 20px
+		top -30px
+		cursor pointer
+		{notouchehiligt}
+
+		&:hover
+			background (colors.bonus-bg-hover)
+
+		h2
+			position absolute
+			top -15px
+			left -20px
+			text-transform uppercase
+			font-weight normal
+			color colors.text.bonus
+			font-size 26px
+			text-transform uppercase
+
+		p
+			color colors.text.bonus
+			font-weight bold
+			font-size 26px
+			margin-bottom 10px
+			&:last-child
+				font-size 18px
+				margin-bottom 0
+				margin-top 5px
+				span
+					font-size 26px
+
+		img
+			width auto
+			shadow()
+
+		+media-max(991)
+			width 360px
+			height 340px
+			top 5px
+
+			p
+				font-size 24px
+				&:last-child
+					font-size 16px
+					span
+						font-size 24px
+
+			img
+				width 320px
+				height 213px
+
+		+media-max(767)
+			top 0
+			margin 20px auto 0
+
+		+media-max(449)
+			width 100%
+			padding 20px 5px
+			height 320px
+
+			h2
+				left 50%
+				transform translateX(-50%)
+
+			p
+				font-size 22px
+				&:last-child
+					width 160px
+					margin 10px auto
+					font-size 14px
+					span
+						font-size 20px
+			img
+				width 260px
+				height 174px
+
+	.text
+		padding-bottom 20px
+
+		h1
+			text-transform uppercase
+			font-size 48px
+			font-weight bolder
+			color (colors.green)
+			margin 0
+
+			span
+				position relative
+				top -25px
+				font-size 20px
+				text-transform uppercase
+				font-weight normal
+
+			+media-max(991)
+				font-size 42px
+				span
+					font-size 16px
+
+			+media-max(767)
+				margin-top 40px
+				text-align center
+
+		>p
+			font-size 18px
+			+media-max(1200)
+				font-size 15px
+			+media-max(767)
+				padding-left 50px
+			+media-max(449)
+				padding-left 10px
+
+	nav
+		border-top 2px solid colors.greenlight
+		padding-top 20px
+		column span 2
+
+		ul
+			list-style none
+			display flex
+			justify-content center
+
+		li
+			margin 0 20px
+
+		a
+			text-transform uppercase
+			font-size 18px
+			color (colors.green)
+
+		+media-max(991)
+			padding-top 10px
+
+			ul
+				flex-flow wrap
+			li
+				flex 0 1 30%
+				margin 10px
+				text-align center
+			a
+				font-size 16px
+
+		+media-max(850)
+			display none

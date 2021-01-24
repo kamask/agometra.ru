@@ -1,0 +1,43 @@
+header.block
+	address
+		p: a(href="https://yandex.ru/maps/org/agometra/244048201602" target="_blank" rel="noopener") г. Москва, Чагинская 13 стр. 5
+		p Ежедневно с #[time(datetime="08:00+03:00") 8.00] до #[time(datetime="18:00+03:00") 18.00]
+		p: a(href="tel://84950953317") 8 (495) 095-33-17
+		p: a(href="tel://+79998713317") +7 (999) 871-33-17
+
+	#logo-svg
+		include svg/header-logo.svg
+
+	form#callback-form
+		label.text-green(for="callback-form-input") Перезвоним и расскажем всё в деталях
+		input#callback-form-input(type="text" autocomplete="off" name="number" placeholder="+7 (999) 999-99-99")
+		button.button-green(type="submit") Жду звонка
+		
+	.text
+		h1.text-green ФУТБОЛКИ ОПТОМ
+			br/
+			span от производителя
+
+		p Если Вы ищете - <br>#[mark “футболки оптом от производителя”]<br> то Вы одназначно зашли куда нужно!
+		br/
+		p Самое высокое качество продукции!<br>Самые низкие цены оптом и в розницу!<br>Работаем по всей России!<br>Любая форма оплаты!
+		br/
+		p Фабрика в Узбекистане, #[strong склад в Москве.<br>Постоянный] #[strong неснижаемый остаток] на<br>складе не менее 70 000 шт.
+
+	article.bonus
+		h2 Акция
+		p ТОЛЬКО ДО 22 ЯНВАРЯ!
+		picture
+			source(srcset="/images/shirts.webp" type="image/webp")
+			img(src="/images/shirts.jpg" alt="Футболки по акции"  width="390" height="260")
+		p ФУТБОЛКИ 125г/м² от 500шт. по #[span 110₽] 
+
+	.lk-client
+		.link
+			include svg/header-user.svg
+			span Кабинет клиента
+		form
+			input(name="login" placeholder="+7 (999) 999-99-99" autocomplete="off" type="text")
+			button.button-green(type="submit") Далее
+			
+	include ../inc/nav.pug

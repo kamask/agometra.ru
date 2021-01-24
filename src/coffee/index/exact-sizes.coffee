@@ -1,4 +1,4 @@
-import { el, els, ev } from '../ksk-lib.js'
+{ el, els, ev } = window.ago.ksk
 
 $sizeA = el '#size-a'
 $sizeB = el '#size-b'

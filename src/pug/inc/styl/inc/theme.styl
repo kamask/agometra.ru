@@ -1,0 +1,92 @@
+a
+	text-decoration none
+	color (colors.text.black)
+	display inline-block
+
+	&:hover
+		text-decoration underline
+		color colors.green
+
+ul
+	list-style none
+
+form
+	display block
+
+input
+	border none
+	outline none
+
+mark
+	color colors.green
+	background transparent
+	font-weight bold
+
+.button-green
+	border none
+	outline none
+	background #84EFA2
+	box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
+	border-radius 10px
+	padding 12px 25px
+	font-size 14px
+	color (colors.text.black)
+	+media-max(767)
+		font-size 12px
+		padding 10px 20px
+
+	&:hover
+		cursor pointer
+		background #6cec91
+
+
+	&:active
+		box-shadow inset 0 0 5px rgba(0, 0, 0, 0.1)
+
+.button-white
+	border none
+	outline none
+	background #fff
+	box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
+	border-radius 10px
+	padding 12px 20px
+	font-size 14px
+	color (colors.text.black)
+	display none
+
+	&:hover
+		cursor pointer
+		background darken(#fff, 2)
+
+	&:active
+		box-shadow inset 0 0 5px rgba(0, 0, 0, 0.1)
+
+.main-container
+	max-width 1140px
+	min-height 100vh
+	margin 0 auto
+	padding-top 10px
+
+	+media-max(1199)
+		max-width 960px
+
+	+media-max(991)
+		max-width 735px
+
+	+media-max(767)
+		max-width 545px
+
+	+media-max(575)
+		width 94%
+
+.block
+	background rgba(255, 255, 255, 0.6)
+	box-shadow inset 0 0 15px rgba(234, 202, 175, 0.5)
+	border-radius 25px
+
+svg, img
+	width 100%
+
+main
+section
+	margin-top 20px

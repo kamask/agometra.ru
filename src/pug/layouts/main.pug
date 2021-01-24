@@ -5,6 +5,7 @@ html(lang='ru')
 		title {{title}}
 		meta(name='viewport' content="width=device-width")
 		meta(http-equiv="X-UA-Compatible" content="ie=edge")
+		link(rel="canonical" href="https://agometra.loc/")
 		link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
 		link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
 		link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
@@ -12,30 +13,14 @@ html(lang='ru')
 		link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5")
 		meta(name="msapplication-TileColor" content="#da532c")
 		meta(name="theme-color" content="#ffffff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nBrXyw023e.woff" as="font" type="font/woff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nBrXyw023e.woff2" as="font" type="font/woff2")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff" as="font" type="font/woff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nDrXyw023e1Ik.woff2" as="font" type="font/woff2")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff" as="font" type="font/woff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nFrXyw023e1Ik.woff2" as="font" type="font/woff2")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff" as="font" type="font/woff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nMrXyw023e1Ik.woff2" as="font" type="font/woff2")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff" as="font" type="font/woff")
-		link(rel="prefetch" href="/fonts/iJWKBXyIfDnIV7nPrXyw023e1Ik.woff2" as="font" type="font/woff2")
-		link(rel="prefetch" href="/js/analytics.js?ver={{cache_version}}")
-		link(rel="dns-prefetch" href="https://mc.yandex.ru")
-		link(rel="preconnect" href="https://mc.yandex.ru" crossorigin)
-		script
-			.
-				window.AGOHOST='{{host}}';window.AGO_CACHE_VERSION='{{cache_version}}';
-			include ../inc/js/lazy-loading.js
 		style
 			include ../inc/css/style.css
 		block head_scripts
-		| {% include 'inc/head.html' ignore missing %}
 	body
-		| {% include 'inc/header.html' ignore missing %}
-		include ../inc/preloader.pug
-		block body
+		include ../inc/nav-top.pug
+		.main-container
+			block body
+		include ../inc/footer.pug
+		script
+			include ../inc/js/script.js
 		block footer_scripts
-		| {% include 'inc/footer.html' ignore missing %}

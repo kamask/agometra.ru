@@ -1,0 +1,34 @@
+footer
+	max-width 1140px
+	display flex
+	margin 20px auto 5px
+	justify-content space-between
+
+	+media-max(1199)
+		max-width 960px
+
+	+media-max(991)
+		max-width 735px
+
+	+media-max(767)
+		max-width 545px
+
+	>svg
+		width 120px
+
+	+media-max(660)
+		flex-direction column
+		align-items center
+		>svg
+			margin-bottom 10px
+		p:nth-child(2)
+			order: 1
+
+	p
+		align-self flex-end
+		font-size 16px
+
+		+media-max(660)
+			align-self stretch
+			text-align center
+			margin-bottom 10px

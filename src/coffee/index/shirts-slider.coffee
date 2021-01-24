@@ -1,4 +1,4 @@
-import { log, el, els, ev, imgWithWebp, makeObserveble } from '../ksk-lib.js'
+{ log, el, els, ev, imgWithWebp, makeObserveble } = window.ago.ksk
 import { $options, current } from './shirts-options.js'
 import { store } from './store.js'
 

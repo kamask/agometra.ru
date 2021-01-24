@@ -1,8 +1,9 @@
 extends layouts/main.pug
 block head_scripts
-  link(rel="preload" href="/css/404.css?ver={{cache_version}}" as="style" onload="this.rel='stylesheet'")
+  style
+    include inc/css/404.css
 block body
-  #logoSVG
-    img(src="/images/logo.svg" alt="Logo-Agometra")
+  include index/svg/header-logo.svg
   h1 404 - Страница не найдена!
   a(href='/') Перейти на главную
+  script window.AGO404 = true

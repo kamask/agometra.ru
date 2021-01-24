@@ -1,16 +1,25 @@
-import { makeObserveble } from '../ksk-lib.js'
-import { ws_handlers } from '../ws.js'
+{ makeObserveble } = window.ago.ksk
 
 export store = makeObserveble {}
 
 init = false
 
-ws_handlers.set 'data-shirts-update', (data) ->
-  data = JSON.parse data
-  if data.where == 'all-init' and not init
-    init = true
-    store.dataFromServer = makeObserveble data.data
-  return
+modulesLoaded = new Promise (resolve) ->
+	loading = ->
+		if `'wslib' in window.ago`
+			do resolve
+		else setTimeout loading, 100
+	do loading
+
+modulesLoaded.then ->
+	{ ws_handlers } = window.ago.wslib
+	ws_handlers.set 'data-shirts-update', (data) ->
+		data = JSON.parse data
+		if data.where == 'all-init' and not init
+			init = true
+			store.dataFromServer = makeObserveble data.data
+		return
+	return
 
 export initData = ->
 	new Promise (resolve) ->

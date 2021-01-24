@@ -1,6 +1,6 @@
 scriptMap = document.createElement 'script'
 scriptMap.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
-document.getElementById('map').append scriptMap
+document.getElementsByTagName('head')[0].append scriptMap
 scriptMap.addEventListener 'load', ->
 	ymaps.ready ->
 		myMap = new ymaps.Map 'map', {

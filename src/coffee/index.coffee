@@ -1,79 +1,47 @@
-import { el, ev, newEl, findParent } from "./ksk-lib.js"
-import { ws, ws_handlers } from './ws.js'
-import "./smooth-scroll.js"
-
+{ el, ev, log } = window.ago.ksk
 import "./index/header.js"
 import "./index/callback-form.js"
-import "./index/lk-form.js"
 import "./index/shirts-options.js"
 import "./index/shirts-slider.js"
 import "./index/shirts-calc.js"
 import "./index/exact-sizes.js"
-import "./index/gallery_agometra.js"
-import { navTopInit } from "./index/lk-form.js"
+import "./index/gallery-agometra.js"
 
-export jsmLoad = (name) ->
-	import('/js/' + name + '?ver=' + window.AGO_CACHE_VERSION)
+getPosYFromWindowBottom = (elem) ->
+	document.documentElement.clientHeight - elem.getBoundingClientRect().top
 
-jsmLoad 'ymap.js'
-if window.AGOHOST == 'agometra.ru'
-	jsmLoad('analytics.js')
+showWhenVisible = (elem, offset = 100) ->
+	if getPosYFromWindowBottom(elem) > 100 then elem.classList.add 'show'
+	else
+		ev window, 'scroll', ->
+			if (not elem.classList.contains 'show') and (getPosYFromWindowBottom(elem) > offset)
+				elem.classList.add 'show'
+			return
+	return
 
-el '#exact-sizes'
-.classList.add 'show'
+shirtsBlock = el '#shirts'
+advantagesBlock = el '#advantages'
+sizesBlock = el '#exact-sizes'
+galleryBlock = el '#gallery-agometra'
+contactsBlock = el '#contacts'
+
+for elem in [shirtsBlock, advantagesBlock, sizesBlock, galleryBlock, contactsBlock]
+	showWhenVisible elem
+
+modulesLoaded = new Promise (resolve) ->
+	loading = ->
+		if `'agolib' in window.ago`
+			do resolve
+		else setTimeout loading, 100
+	do loading
 
 
-$nav = document.createElement 'nav'
-$nav.id = 'nav-top'
+modulesLoaded.then ->
+	{ lkFormHandler  } = window.ago.agolib
 
-$closeButton = document.createElement 'span'
-$closeButton.id = 'nav-top-close-button'
-$closeButton.innerText = 'ᗕ'
+	lkFormLink = el 'header .lk-client .link'
+	lkForm = el 'header .lk-client form'
+	lkFormHandler lkForm, lkFormLink, 'header'
 
-$burgerButton = document.createElement 'span'
-$burgerButton.id = 'burger-menu-button'
-$burgerButton.innerText = '≑'
-
-$logo = (el '#logo-svg').cloneNode true
-$logo.id = 'logo-nav-svg'
-
-$nav.append $closeButton
-$nav.append $logo
-$nav.append (el 'header>address').cloneNode true
-$nav.append (el 'header>.lk-client').cloneNode true
-$nav.append (el 'header>nav>ul').cloneNode true
-
-$mainContainer = el '#main-container'
-$mainContainer.prepend $nav
-$nav.before $burgerButton
-
-docWidth = document.documentElement.clientWidth
-$body = el 'body'
-
-ev $burgerButton, 'click', (e) ->
-  if docWidth <= 850
-    $nav.style.left = '0'
-    setTimeout (->
-      $body.classList.add 'block-scroll'
-      return
-      ), 300
-  return
-
-ev $nav, 'click', (e) ->
-  if docWidth <= 850 and not findParent e.target, el '#nav-top .lk-client'
-    if e.target in [$nav, $logo]
-      return
-    $body.classList.remove 'block-scroll'
-    $nav.style.left = '-380px'
-  return
-
-ev document, 'scroll', (e) ->
-  scroll = window.pageYOffset
-  if docWidth > 850
-    if scroll > 750
-      $nav.style.top = '0'
-    else
-      $nav.style.top = '-90px'
-  return
-
-do navTopInit
+	import('/js/ymap.js?ver=' + window.ago.AGO_CACHE_VERSION)
+	return

@@ -1,0 +1,52 @@
+media-max(max-size)
+	@media screen and (max-width: unit(max-size, px))
+		{block}
+
+media-min(min-size)
+	@media screen and (min-width: unit(min-size, px))
+		{block}
+
+media-min-max(min-size, max-size)
+	@media screen and (min-width: unit(min-size, px)) and (max-width: unit(max-size, px))
+		{block}
+
+shadow(x = 0, y = 0, blur = 5px, sprad = 0, color = #000, alpha = .25)
+	box-shadow x y blur sprad alpha(color, alpha)
+
+columns()
+	grid-template-columns arguments
+
+rows()
+	grid-template-rows arguments
+
+column()
+	grid-column arguments
+
+row()
+	grid-row arguments
+
+colors = {
+	green: rgb(53, 112, 115),
+	greenlight: #84EFA2,
+	error: rgb(255, 79, 79),
+	bezh: rgba(234, 202, 175, 0.5),
+	bonus-bg: #FCE8D7,
+	bonus-bg-hover: rgb(199, 255, 163),
+	text: {
+		black: #444,
+		bonus: #a55151,
+		silver: #878787
+	},
+	table-column: #AAA,
+	table-row-hover: #91e3ff,
+	svg-icon: #3f4242
+}
+
+notouchehiligt =
+	-webkit-tap-highlight-color: transparent
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none

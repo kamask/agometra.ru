@@ -1,0 +1,70 @@
+#contacts
+	padding: 20px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	transition opacity 1s ease-out
+	&.show
+		opacity 1
+	+media-max(1020)
+		padding: 20px 10px
+
+	h2
+		text-transform: uppercase
+		color: colors.green
+		text-align: center
+		flex: 1 1 100%
+		margin-bottom: 20px
+
+	.info
+		display: flex
+		flex-direction: column
+		flex-basis: calc(50% - 50px)
+		margin-top: 20px
+		+media-max(1020)
+			flex-basis: calc(40% - 30px)
+		+media-max(770)
+			flex: 1
+			flex-basis: 90%
+
+		p
+			font-size: 18px
+			position: relative
+			margin-left: 25px
+			margin-bottom: 25px
+
+			+media-max(1020)
+				font-size: 16px
+			+media-max(460)
+				font-size: 14px
+
+			svg
+				width: 20px
+				position: absolute
+				top: 0
+				left: -25px
+
+		.social
+			margin-top: auto
+			margin-left: 25px
+
+			svg
+				width: 40px
+				margin-right: 20px
+				cursor: pointer
+				fill: colors.green
+
+				&:hover
+					fill: #444
+
+#map
+	order: 1
+	flex-basis: 50%
+	height: 400px
+	box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+
+	+media-max(1020)
+		flex-basis: 60%
+	+media-max(770)
+		flex-basis: 100%
+		order: 0

@@ -1,0 +1,1 @@
+window.starters.push(function(){var e;return import("/js/index.js?ver="+window.ago.AGO_CACHE_VERSION),(e=document.createElement("link")).rel="stylesheet",e.href="/css/index.css",document.getElementsByTagName("head")[0].append(e)});
