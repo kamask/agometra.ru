@@ -1,0 +1,38 @@
+[{
+	"@context": "http://schema.org",
+	"@type": "Store",
+	"@id": "https://agometra.ru/#contacts",
+	"url": "https://agometra.ru/",
+	"logo": "https://agometra.ru/images/LogoFlat.png",
+	"hasMap": "https://yandex.ru/maps/org/agometra/244048201602",
+	"email": "mailto:info@agometra.ru",
+	"address": {
+		"@type": "PostalAddress",
+		"addressLocality": "Moscow",
+		"addressRegion": "Moscow",
+		"postalCode":"109380",
+		"streetAddress": "ул.Чагинская, дом 13, стр. 5"
+	},
+	"description": "This is your business description.",
+	"name": "Агометра",
+	"telephone": ["+74950953317", "+79998713317"],
+	"openingHours": "08:00-19:00",
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "55.658767",
+		"longitude": "37.807410"
+	},
+	"sameAs" : [ "https://instagram.com/futbolkioptomoskva"]
+},
+{
+	"@context": "http://schema.org",
+	"@type": "Product",
+	"@id": "https://agometra.ru/#shirts",
+	"name": "ФУТБОЛКА КЛАССИКА - 100% ХЛОПОК (ПРЯЖА - КАРДЕ)",
+	"description": "Футболка однотонная, 100% хлопок, большой цветовой ассортимент.",
+	"offers": {
+		"@type": "AggregateOffer",
+		"lowPrice": "110",
+		"priceCurrency": "RUB"
+	}
+}]

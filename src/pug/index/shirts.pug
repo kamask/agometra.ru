@@ -1,8 +1,8 @@
-main#shirts
+main#shirts(itemscope itemtype="http://schema.org/Product")
 	div.block
-		h2 ФУТБОЛКА КЛАССИКА - 100% ХЛОПОК (ПРЯЖА - КАРДЕ)
+		h2(itemprop="name") ФУТБОЛКА КЛАССИКА - 100% ХЛОПОК (ПРЯЖА - КАРДЕ)
 
-		.description
+		.description(itemprop="description")
 			p Футболка однотонная, 100% хлопок, большой цветовой ассортимент.
 			p Естественные свойства материала футболки: воздухопроницаемость, материал дышит, впитывает влагу.
 			p Без лейблов и товарных знаков, указан ТОЛЬКО размер.
@@ -17,7 +17,7 @@ main#shirts
 			p Товар сертифицирован.
 
 		.options
-			#shirts-options.density
+			#shirts-options.density(itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer")
 				p Плотность:
 				ul.density-price
 					li
@@ -39,7 +39,8 @@ main#shirts
 					li.bonus-price
 						span от 500 шт.
 						span -
-						span 110₽
+						span(itemprop="lowPrice") 110₽
+						meta(itemprop="priceCurrency" content="RUB")
 			.color
 				p Цвет:
 			.existence

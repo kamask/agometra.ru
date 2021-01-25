@@ -1,8 +1,12 @@
 section#contacts.block
 	h2 Как нас найти
 	#map
-	.info
-		p
+	.info(itemscope itemtype="http://schema.org/Store")
+		meta(itemprop="name" content="Агометра")
+		meta(itemprop="brand" content="Агометра")
+		link(itemprop="logo" href="https:///agometra.ru/images/LogoFlat.png")
+		link(itemprop="url" href="https://agometra.ru")
+		p(itemprop="address")
 			include svg/map_icon.svg
 			.
 				Адрес: 109380, г. Москва, ул.Чагинская, дом 13, стр. 5
@@ -10,15 +14,15 @@ section#contacts.block
 		p
 			include svg/tel_icon.svg
 			.
-				Телефон: #[a(href="tel:+79295335535") +7 (929) 533 55 35]
+				Телефоны: #[a(itemprop="telephone" href="tel:84950953317") 8 (495) 095 33 17], #[a(itemprop="telephone" href="tel:+79998713317") +7 (999) 871 33 17]
 		p
 			include svg/mail_icon.svg
 			.
-				E-mail: #[a(href="mailto:info@agometra.ru") info@agometra.ru]
-		p
+				E-mail: #[a(itemprop="email" href="mailto:info@agometra.ru") info@agometra.ru]
+		p(itemprop="openingHours")
 			include svg/clock_icon.svg
 			.
-				Режим работы: с 8.00 до 19.00 (ежедневно)
+				Режим работы: #[time(itemprop="openingHours" datetime="08:00-19:00") с 8.00 до 19.00 (ежедневно)]
 		.social
 			a(href="https://wa.me/79295335535?text=Здравствуйте!%20Перешёл%20только%20что%20с%20сайта." target="_blank" rel="noopener")
 				include svg/whatsapp.svg

@@ -1,12 +1,19 @@
 extend layouts/main.pug
 block prepend head_scripts
-	meta(name="description" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
-	meta(name="keywords" content="Футболки оптом. Фабрика Узбекистан. Доставка по всей России.")
+	meta(property="og:title" content="Купить футболки оптом")
+	meta(property="og:description" content="Футболки оптом. 100% хлопок. Фабрика Узбекистан. Доставка по всей России.")
+	meta(property="og:type" content="product")
+	meta(property="og:image" content="https://agometra.ru/images/shirts.jpg")
+	meta(property="og:image:alt" content="Футболки")
+	meta(property="og:url" content="https://agometra.ru")
+	meta(itemprop="description" name="description" content="Футболки оптом. 100% хлопок. Фабрика Узбекистан. Доставка по всей России.")
+	meta(itemprop="keywords" name="keywords" content="Футболки оптом, Купить футболки оптом, Футболки оптом от производителя, Футболки оптом дешево, Мужские футболки оптом, Белые футболки оптом, Футболки однотонные оптом, Купить футболки оптом дешево, Купить однотонные футболки оптом, Футболки хлопок оптом")
 	meta(rel="prefetch" href="/images/shirts.webp")
 	meta(rel="prefetch" href="/images/shirts.png")
 	style
 		include index/css/style.css
 block body
+	script(type="application/ld+json") [{"@context":"http://schema.org","@type":"Store","@id":"https://agometra.ru/#contacts","url":"https://agometra.ru/","logo":"https://agometra.ru/images/LogoFlat.png","hasMap":"https://yandex.ru/maps/org/agometra/244048201602","email":"mailto:info@agometra.ru","address":{"@type":"PostalAddress","addressLocality":"Moscow","addressRegion":"Moscow","postalCode":"109380","streetAddress":"ул.Чагинская, дом 13, стр. 5"},"description":"This is your business description.","name":"Агометра","telephone":["+74950953317","+79998713317"],"openingHours":"08:00-19:00","geo":{"@type":"GeoCoordinates","latitude":"55.658767","longitude":"37.807410"},"sameAs":["https://instagram.com/futbolkioptomoskva"]},{"@context":"http://schema.org","@type":"Product","@id":"https://agometra.ru/#shirts","name":"ФУТБОЛКА КЛАССИКА - 100% ХЛОПОК (ПРЯЖА - КАРДЕ)","description":"Футболка однотонная, 100% хлопок, большой цветовой ассортимент.","offers":{"@type":"AggregateOffer","lowPrice":"110","priceCurrency":"RUB"}}]
 	include index/header.pug
 	include index/shirts.pug
 	include index/advantages.pug
