@@ -1,3 +1,4 @@
+import uvicorn
 from starlette.applications import Starlette
 from .config import DEBUG
 from .routes import routes, tlgrm_webhook_set
@@ -8,15 +9,18 @@ HTML_404_PAGE = ...
 
 
 async def check_migrations():
-	raw = await db.fetch_one("SELECT 1 FROM information_schema.tables WHERE table_name = 'migrations';")
-	if not raw:
-		raise Exception('Не обнаружена структура БД! Сделайте изначальную миграцию!')
+    raw = await db.fetch_one("SELECT 1 FROM information_schema.tables WHERE table_name = 'migrations'")
+    if not raw:
+        raise Exception('Не обнаружена структура БД! Сделайте изначальную миграцию!')
 
 
 app = Starlette(
-  debug=DEBUG,
-  routes=routes,
-  exception_handlers=exception_handlers,
-  on_startup=[tlgrm_webhook_set, db.connect, check_migrations],
-  on_shutdown=[db.disconnect]
-  )
+    debug=DEBUG,
+    routes=routes,
+    exception_handlers=exception_handlers,
+    on_startup=[tlgrm_webhook_set, db.connect, check_migrations],
+    on_shutdown=[db.disconnect]
+)
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=3001, reload=True, header="Server:KamaSKStudio<s@sha88.ru>")

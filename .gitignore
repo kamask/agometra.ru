@@ -1,4 +1,6 @@
+.idea/
 /public
+/ssl
 /venv
 
 /src/node_modules/

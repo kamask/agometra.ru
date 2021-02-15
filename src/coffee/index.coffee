@@ -43,5 +43,6 @@ modulesLoaded.then ->
 	lkForm = el 'header .lk-client form'
 	lkFormHandler lkForm, lkFormLink, 'header'
 
-	import('/js/ymap.js?ver=' + window.ago.AGO_CACHE_VERSION)
+	moduleYMapPath =  '/js/ymap.js?ver=' + window.ago.AGO_CACHE_VERSION
+	import(moduleYMapPath)
 	return
